@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap FIRST -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- YOUR CSS LAST -->
+<link rel="stylesheet" href="./styles/about.css">
+
+<link rel="stylesheet" href="./styles/index_navbar.css">
+<link rel="stylesheet" href="./styles/index_footer.css">
+<link rel="stylesheet" href="./styles/loader.css">
+
+
+<title>Sticky Navbar & Footer</title>
+
+
+
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<?php include "./includes/index_navbar.html"; ?>
+
+<!-- ================= CONTENT ================= -->
+ <main>
+<section class="hero">
+<div class="container">
+<h1>Connecting You with Trusted Local Services</h1>
+<p>Find reliable professionals in your neighborhood – fast, easy, and affordable.</p>
+</div>
+</section>
+
+
+<!-- Who We Are -->
+<section class="section">
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<h2>Who We Are</h2>
+<p>
+We are a community-driven local services platform that connects customers
+with trusted service providers such as beauty & spa, home repairs, cleaning,
+electricians, and more. Our goal is to empower local businesses while making
+everyday services simple for customers.
+</p>
+</div>
+<div class="col-md-6 text-center">
+<img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2670&auto=format&fit=crop" alt="Our Team" class="img-responsive center-block about-img">
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- What We Do -->
+<!-- What We Do -->
+<div class="container">
+<div class="text-center">
+<h2>Why Choose Us</h2>
+</div>
+<div class="row">
+<div class="col-sm-6 col-md-3">
+<div class="card text-center">
+<i class="fa fa-shield icon"></i>
+<p>Trusted & Secure</p>
+</div>
+</div>
+<div class="col-sm-6 col-md-3">
+<div class="card text-center">
+<i class="fa fa-clock-o icon"></i>
+<p>Quick Response</p>
+</div>
+</div>
+<div class="col-sm-6 col-md-3">
+<div class="card text-center">
+<i class="fa fa-inr icon"></i>
+<p>Transparent Pricing</p>
+</div>
+</div>
+<div class="col-sm-6 col-md-3">
+<div class="card text-center">
+<i class="fa fa-map-marker icon"></i>
+<p>Local Experts</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- Stats -->
+<section class="section stats">
+<div class="container">
+<div class="row">
+<div class="col-sm-3">
+<h3>10k+</h3>
+<p>Customers</p>
+</div>
+<div class="col-sm-3">
+<h3>1.5k+</h3>
+<p>Service Providers</p>
+</div>
+<div class="col-sm-3">
+<h3>25+</h3>
+<p>Categories</p>
+</div>
+<div class="col-sm-3">
+<h3>100+</h3>
+<p>Cities</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- CTA -->
+<section class="section cta">
+<div class="container">
+<h2>Get Started Today</h2>
+<p>Find trusted services near you or grow your business with us</p>
+<a href="#" class="btn btn-primary btn-lg">Find a Service</a>
+<a href="#" class="btn btn-default btn-lg">Join as Provider</a>
+</div>
+</section>
+ </main>
+
+<!-- ================= FOOTER ================= -->
+<?php include "./includes/index_footer.html"; ?>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap FIRST -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- YOUR CSS LAST -->
+<link rel="stylesheet" href="./styles/index_navbar.css">
+<link rel="stylesheet" href="./styles/loader.css">
+<link rel="stylesheet" href="./index.css">
+
+<link rel="stylesheet" href="./styles/index_footer.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div id="loader-wrapper">
+    <div class="loader-content">
+        
+        <div class="pro-logo-lockup">
+            <svg class="pro-logo-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C8.13401 2 5 5.13401 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13401 15.866 2 12 2ZM10.5 13L7.5 10L8.91 8.59L10.5 10.17L15.09 5.59L16.5 7L10.5 13Z" fill="#0ea5e9"/>
+            </svg>
+            
+            <div class="pro-logo-text">
+                Local<span class="pro-highlight">Pro</span>
+            </div>
+        </div>
+        <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+</div>
+
+<?php include "./includes/index_navbar.html"; ?>
+
+<main>
+
+
+
+ <section class="hero-section">
+        <div class="search-wrapper">
+            <h1 class="search-title">Find Local Services Near You</h1>
+            <h2 class="search-subtitle">Connect instantly with top-rated professionals in your neighborhood.</h2>
+            
+            <form class="search-form" id="localServiceForm">
+                
+                <div class="input-group service-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input class="myinput" type="text" id="serviceInput" placeholder="What are you looking for? (e.g. Plumber, Salon)">
+                </div>
+
+                <div class="input-group location-search">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input class="myinput" type="text" id="locationInput" placeholder="Location">
+                </div>
+
+                <button type="submit" class="btn-search">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </form>
+        </div>
+    </section>
+<section class="categories-section">
+  <div class="container">
+    <h2 class="section-title">Top Local Service Categories</h2>
+
+    <div class="row">
+
+      <div class="col-md-3 col-sm-4 col-xs-6 ">
+        <a href="./user/shops.html" class="category-link">
+          <div class="category-card">
+            <i class="fa fa-scissors"></i>
+            <h4>Beauty & Spa</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <a href="./user/shops.html" class="category-link">
+          <div class="category-card">
+            <i class="fa fa-plug"></i>
+            <h4>Electrician</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <a href="./user/shops.html" class="category-link">
+          <div class="category-card">
+            <i class="fa fa-wrench"></i>
+            <h4>Plumber</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <a href="/categories/painting" class="category-link">
+          <div class="category-card">
+            <i class="fa fa-paint-brush"></i>
+            <h4>Painting</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <a href="/categories/home-cleaning" class="category-link">
+          <div class="category-card">
+            <i class="fa fa-home"></i>
+            <h4>Home Cleaning</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <a href="/categories/car-wash" class="category-link">
+          <div class="category-card">
+            <i class="fa fa-car"></i>
+            <h4>Car Wash</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <a href="/categories/computer-repair" class="category-link">
+          <div class="category-card">
+            <i class="fa fa-laptop"></i>
+            <h4>Computer Repair</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <a href="/categories/pest-control" class="category-link">
+          <div class="category-card">
+            <i class="fa fa-bug"></i>
+            <h4>Pest Control</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <a href="/categories/packers-movers" class="category-link">
+          <div class="category-card">
+            <i class="fa fa-truck"></i>
+            <h4>Packers & Movers</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <a href="/categories/home-tuition" class="category-link">
+          <div class="category-card">
+            <i class="fa fa-book"></i>
+            <h4>Home Tuition</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <a href="/categories/pet-care" class="category-link">
+          <div class="category-card">
+            <i class="fa fa-paw"></i>
+            <h4>Pet Care</h4>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <a href="/categories/photography" class="category-link">
+          <div class="category-card">
+            <i class="fa fa-camera"></i>
+            <h4>Photography</h4>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="featured-shops">
+  <div class="container">
+    <h2 class="section-title">Featured Local Shops</h2>
+
+    <div class="row">
+
+      <div class="col-md-4 col-sm-6">
+        <div class="shop-card">
+          <img src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg"
+               alt="Beauty Salon" class="shop-img img-responsive">
+
+          <div class="shop-content">
+            <h4 class="shop-name">Glow Beauty Salon</h4>
+            <p class="shop-location">
+              <i class="fa fa-map-marker"></i> Anna Nagar, Chennai
+            </p>
+            <a href="./user/shop_details.html" class="btn btn-primary btn-block">
+              view details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="shop-card">
+          <img src="https://images.pexels.com/photos/4792509/pexels-photo-4792509.jpeg"
+               alt="Electrician" class="shop-img img-responsive">
+
+          <div class="shop-content">
+            <h4 class="shop-name">Spark Electric Works</h4>
+            <p class="shop-location">
+              <i class="fa fa-map-marker"></i> BTM Layout, Bengaluru
+            </p>
+            <a href="./user/shop_details.html" class="btn btn-primary btn-block">
+              View details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="shop-card">
+          <img src="https://images.pexels.com/photos/4194862/pexels-photo-4194862.jpeg"
+               alt="Plumber" class="shop-img img-responsive">
+
+          <div class="shop-content">
+            <h4 class="shop-name">QuickFix Plumbing</h4>
+            <p class="shop-location">
+              <i class="fa fa-map-marker"></i> Hitech City, Hyderabad
+            </p>
+            <a href="./user/shop_details.html" class="btn btn-primary btn-block">
+              View details
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div> 
+    
+    <div class="text-center mt-5">
+      <a href="./user/shops.html" class="btn btn-lg btn-secondary-outline" role="button">
+        View All Shops
+        <i class="fa fa-arrow-right ml-2"></i>
+      </a>
+    </div>
+    </div>
+</section>
+<section class="recommended-section">
+    <div class="container">
+        <h2 class="section-title">Recommended Services</h2>
+
+        <div class="services-grid">
+            
+            <article class="service-card">
+                <div class="card-image">
+                    <img src="https://images.pexels.com/photos/4194862/pexels-photo-4194862.jpeg" alt="Plumbing">
+                    <span class="badge"><i class="fa-solid fa-star"></i> 4.9</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="service-name">Emergency Plumbing</h3>
+                    <p class="shop-name">by QuickFix Heroes</p>
+                    <div class="location-info">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Downtown (1.2 km)</span>
+                    </div>
+                    <a href="./user/service_details.php" class="btn-details">View Details</a>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-image">
+                    <img src="https://images.pexels.com/photos/7658806/pexels-photo-7658806.jpeg" alt="Gardening">
+                    <span class="badge"><i class="fa-solid fa-star"></i> 4.7</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="service-name">Garden Maintenance</h3>
+                    <p class="shop-name">by GreenThumb Pros</p>
+                    <div class="location-info">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>West Hills (3.5 km)</span>
+                    </div>
+                    <a href="./user/service_details.php" class="btn-details">View Details</a>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-image">
+                    <img src="https://images.pexels.com/photos/4981794/pexels-photo-4981794.jpeg" alt="Electrician">
+                    <span class="badge"><i class="fa-solid fa-star"></i> 5.0</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="service-name">Home Wiring Fix</h3>
+                    <p class="shop-name">by Volt Masters</p>
+                    <div class="location-info">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>North Avenue (0.8 km)</span>
+                    </div>
+                    <a href="./user/service_details.php" class="btn-details">View Details</a>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-image">
+                    <img src="https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg" alt="Cleaning">
+                    <span class="badge"><i class="fa-solid fa-star"></i> 4.5</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="service-name">Deep House Clean</h3>
+                    <p class="shop-name">by Sparkle Squad</p>
+                    <div class="location-info">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>City Center (2.0 km)</span>
+                    </div>
+                    <a href="./user/service_details.php" class="btn-details">View Details</a>
+                </div>
+            </article>
+
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="./user/services.html" class="btn btn-lg btn-secondary-outline" role="button">
+                View All Services
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+        </div>
+</section>
+
+
+
+<section class="customer-reviews">
+  <div class="container">
+    <h2 class="section-title">What Our Customers Say</h2>
+
+    <div class="row">
+
+      <!-- Review 1 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="review-card">
+          <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
+               class="review-img" alt="Customer">
+          <h4 class="review-name">Anjali Sharma</h4>
+          <p class="review-location">Bengaluru</p>
+          <div class="review-stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+          </div>
+          <p class="review-text">
+            Excellent service! The electrician arrived on time and fixed the issue quickly.
+          </p>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="review-card">
+          <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
+               class="review-img" alt="Customer">
+          <h4 class="review-name">Rahul Verma</h4>
+          <p class="review-location">Hyderabad</p>
+          <div class="review-stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <p class="review-text">
+            Very professional and affordable. Booking was smooth and hassle-free.
+          </p>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="review-card">
+          <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg"
+               class="review-img" alt="Customer">
+          <h4 class="review-name">Sneha Iyer</h4>
+          <p class="review-location">Chennai</p>
+          <div class="review-stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p class="review-text">
+            Loved the service quality. The beauty salon was clean and staff were polite.
+          </p>
+        </div>
+      </div>
+
+      <!-- Review 4 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="review-card">
+          <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg"
+               class="review-img" alt="Customer">
+          <h4 class="review-name">Arjun Patel</h4>
+          <p class="review-location">Ahmedabad</p>
+          <div class="review-stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+             <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p class="review-text">
+            Quick response and reliable service. Will definitely use again.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="join-us-section">
+    <div class="join-card">
+        
+        <div class="join-content">
+            <div class="p-badge">JOIN THE NETWORK</div>
+            <h2 class="p-title">Ready to reach <br><span>new customers?</span></h2>
+            <p class="p-desc">
+                Get your shop listed on the #1 local services platform. 
+                Manage orders, track revenue, and grow your brand with 
+                professional tools built for shop owners.
+            </p>
+
+            <a href="./joinus.php" class="p-btn">
+                Get Started Now
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="join-visual">
+            <div class="p-stat">
+                <i class="fa-solid fa-chart-line"></i>
+                <div>
+                    <b>+35% Growth</b>
+                    <span>Average Monthly Sales</span>
+                </div>
+            </div>
+            
+            <svg class="bg-decoration" width="300" height="300" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" stroke="white" stroke-width="2" fill="none" />
+            </svg>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+</main>
+
+<?php include "./includes/index_footer.html"; ?>
+
+
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+<script>
+/**
+ * Local Pro - Preloader Logic
+ */
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader-wrapper');
+    
+    // 1. Add a small delay (1.5s) so the animation isn't too fast
+    // This gives a premium feel to the "Local Pro" branding
+    setTimeout(() => {
+        
+        // 2. Add the hidden class to trigger the CSS transition
+        loader.classList.add('loader-hidden');
+        
+        // 3. Re-enable scrolling on the body
+        document.body.classList.remove('loading');
+        
+        // 4. (Optional) Remove the element from DOM after transition finishes
+        // This keeps the site lightweight
+        loader.addEventListener('transitionend', () => {
+            if (loader.parentNode) {
+                loader.parentNode.removeChild(loader);
+            }
+        });
+
+    }, 3000); 
+});
+
+// Backup: If the page takes too long (e.g., slow images), 
+// force hide the loader after 5 seconds so the user can see the site.
+setTimeout(() => {
+    const loader = document.getElementById('loader-wrapper');
+    if (loader && !loader.classList.contains('loader-hidden')) {
+        loader.classList.add('loader-hidden');
+        document.body.classList.remove('loading');
+    }
+}, 5000);
+</script>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+<script>
+    // Javascript to handle the form submission
+    const form = document.getElementById('localServiceForm');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Stop page from reloading
+
+        const service = document.getElementById('serviceInput').value;
+        const location = document.getElementById('locationInput').value;
+
+        if(!service && !location) {
+            alert("Please enter a service or location.");
+            return;
+        }
+
+        // 1. Create a URLSearchParams object to build the query string safely
+        const params = new URLSearchParams();
+        
+        // 2. Append parameters if they exist
+        if (service) {
+            params.append('service', service);
+        }
+        if (location) {
+            params.append('location', location);
+        }
+        
+        // 3. Construct the final URL and redirect
+        // Example: ./user/search_results.php?service=cleaning&location=Hyderabad
+        window.location.href = './user/search_results.php?' + params.toString();
+
+        // The alert and console logs are now obsolete, but kept for context:
+        // console.log("--- Search Initiated ---");
+        // console.log("Service/Shop:", service);
+        // console.log("Location:", location);
+    });
+
+    // 1. Disable scrolling immediately
+document.body.classList.add('loading');
+
+window.addEventListener('load', function() {
+    const loader = document.getElementById('loader-wrapper');
+    
+    // Smooth transition
+    setTimeout(() => {
+        loader.classList.add('loader-hidden');
+        document.body.classList.remove('loading');
+    }, 3000); // Small delay to ensure animations start smoothly
+});
+
+
+// Toggle Mobile Menu
+function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("active");
+    
+    // Animate the toggle button icon
+    const btn = document.querySelector(".menu-toggle");
+    btn.innerHTML = nav.classList.contains("active") ? "✕" : "☰";
+}
+
+// Navbar Shrink on Scroll
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+</script>
+
+</body>
+</html>

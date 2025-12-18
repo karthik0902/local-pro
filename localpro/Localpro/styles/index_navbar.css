@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+a{
+    text-decoration: none !important;
+}
+
+:root {
+    --p-blue: #0ea5e9;
+    --p-dark: #0f172a;
+    --p-slate: #64748b;
+    --p-white: #ffffff;
+}
+/* ================= NAVBAR ================= */
+/* ================= MODERN NAVBAR ================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0;
+    /* High-end Gradient with Glassmorphism */
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(14, 164, 233, 0.9) 100%);
+    backdrop-filter: blur(10px); /* Blur effect for modern feel */
+    -webkit-backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+}
+
+/* Subtle Shadow on Scroll */
+.navbar.scrolled {
+    padding: 10px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #fff !important;
+    font-size: 24px;
+    font-weight: 800;
+    margin-top: 10px;
+    letter-spacing: -0.5px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 15px;
+    font-weight: 600;
+    position: relative;
+    padding: 5px 0;
+    transition: 0.3s;
+}
+
+/* --- The Underline Animation --- */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #38bdf8;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #fff !important;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu Toggle Animation */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle:active {
+    transform: scale(0.8);
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: -100vh; /* Start off-screen */
+        left: 0;
+        width: 100%;
+        height: auto;
+        background: #0f172a;
+        flex-direction: column;
+        padding: 40px 0;
+        gap: 20px;
+        transition: top 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .nav-links.active {
+        top: 60px; /* Slide down into view */
+    }
+}
+/* --- Variables & Core Styles --- */

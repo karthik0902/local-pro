@@ -1,0 +1,123 @@
+
+/* --- Updated Preloader Styles --- */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0f172a; /* Dark Navy theme */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: opacity 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- NEW LOGO STYLES --- */
+.pro-logo-lockup {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+/* The Icon Animation */
+.pro-logo-icon {
+    /* A subtle, professional bounce indicating activity */
+    animation: softBounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.5));
+}
+
+/* The Text Typography */
+.pro-logo-text {
+    font-size: 36px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    
+    /* THE SHIMMER ANIMATION SETUP */
+    /* This creates a gradient mask over the text */
+    background: linear-gradient(
+        to right, 
+        #ffffff 0%, 
+        #ffffff 40%, 
+        #0ea5e9 50%, /* The shimmer color */
+        #ffffff 60%, 
+        #ffffff 100%
+    );
+    background-size: 200% auto;
+    
+    /* Standard vendor prefixes for text-clipping */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    animation: textShimmer 3s linear infinite reverse;
+}
+
+.pro-highlight {
+    color: #0ea5e9; /* Fallback color */
+    /* The gradient above handles the actual color now */
+}
+
+
+/* --- EXISTING LOADING BAR STYLES (Unchanged) --- */
+.loading-bar-container {
+    width: 150px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Added depth */
+}
+
+.loading-bar {
+    width: 100%;
+    height: 100%;
+    background: #0ea5e9;
+    position: absolute;
+    left: -100%;
+    animation: slideProgress 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite; /* Smoother easing */
+}
+
+/* --- NEW ANIMATION KEYFRAMES --- */
+
+/* Icon gently bobbing up and down */
+@keyframes softBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* Light passing over the text */
+@keyframes textShimmer {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Existing Bar Animation (Slightly smoothed) */
+@keyframes slideProgress {
+    0% { left: -100%; }
+    50% { left: 20%; }
+    100% { left: 100%; }
+}
+
+/* --- JS Hiding States --- */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+body.loading {
+    overflow: hidden;
+}

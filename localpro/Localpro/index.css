@@ -1,0 +1,822 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+a{
+    text-decoration: none !important;
+}
+
+:root {
+    --p-blue: #0ea5e9;
+    --p-dark: #0f172a;
+    --p-slate: #64748b;
+    --p-white: #ffffff;
+}
+
+
+/* --- Section Container --- */
+.join-us-section {
+    padding: 80px 20px;
+    background-color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* --- The Card Layout --- */
+.join-card {
+    width: 100%;
+    max-width: 1100px;
+    background: var(--p-white);
+    border-radius: 32px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e2e8f0;
+}
+
+/* --- Content Side --- */
+.join-content {
+    padding: 60px;
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.p-badge {
+    display: inline-block;
+    background: #e0f2fe;
+    color: var(--p-blue);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    width: fit-content;
+}
+
+.p-title {
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--p-dark);
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+}
+
+.p-title span {
+    color: var(--p-blue);
+}
+
+.p-desc {
+    font-size: 18px;
+    color: var(--p-slate);
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+/* --- The Button --- */
+.p-btn {
+    background: var(--p-dark);
+    color: white !important;
+    text-decoration: none !important;
+    padding: 20px 40px;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.15);
+}
+
+.p-btn:hover {
+    background: var(--p-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(14, 165, 233, 0.3);
+}
+
+.p-btn i {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.p-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* --- Visual Side --- */
+.join-visual {
+    flex: 0.8;
+    background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.p-stat {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 2;
+    animation: float 4s ease-in-out infinite;
+}
+
+.p-stat i { color: #22c55e; font-size: 24px; }
+.p-stat b { font-size: 20px; color: var(--p-dark); display: block; }
+.p-stat span { color: var(--p-slate); font-size: 14px; }
+
+.bg-decoration {
+    position: absolute;
+    opacity: 0.15;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 991px) {
+    .join-card { flex-direction: column; }
+    .join-visual { min-height: 250px; }
+    .p-title { font-size: 34px; }
+    .join-content { padding: 40px; align-items: center; text-align: center; }
+    .p-btn { width: 100%; justify-content: center; }
+}
+/* ================= CONTENT ================= */
+
+.hero-banner{
+    max-height: 500px;
+    object-fit: cover;
+
+    width: 100%;
+}
+.categories-section {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+}
+
+.section-title {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.category-card {
+  background: #fff;
+
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  padding: 30px 15px;
+  text-align: center;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.category-card i {
+  font-size: 34px;
+  color: #007bff;
+  margin-bottom: 12px;
+}
+
+.category-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.category-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+}
+
+
+
+/* ================= FEATURED SHOPS ================= */
+/* Existing CSS is here... */
+.featured-shops {
+  padding: 60px 0;
+  background: #f8fafc;
+}
+
+.shop-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.shop-card:hover {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+}
+
+.shop-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.shop-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.shop-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.shop-location {
+  font-size: 1.4rem;
+  color: #64748b;
+  margin-bottom: 18px;
+}
+
+.shop-location i {
+  color: #ef4444;
+  margin-right: 6px;
+}
+
+.shop-card .btn {
+  border-radius: 30px;
+  font-weight: 600;
+  /* Assuming btn-primary from Bootstrap is used for the contact button */
+  /* If you are not using Bootstrap, add a base style for .btn-primary */
+}
+
+/* --- New Styles for the "View All Shops" Button --- */
+
+.btn-secondary-outline {
+  /* This style makes it stand out from the "Contact" button */
+  background-color: transparent;
+  color: #373a43; /* Dark text */
+  border: 2px solid #0f172a; 
+  padding: 10px 30px;
+  border-radius: 50px; /* Pill shape */
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary-outline:hover {
+  background-color: #0f172a;
+  color: #ffffff;
+}
+
+.btn-lg {
+  /* Ensures the button is large and noticeable */
+  min-width: 200px; 
+}
+
+/* Responsive adjustment for the View All Button on small screens */
+@media (max-width: 576px) {
+  .btn-lg {
+    width: 90%; /* Make the button wider on small phones */
+    min-width: unset;
+  }
+
+  
+}
+
+
+/* ================= CUSTOMER REVIEWS ================= */
+/* ================= CUSTOMER REVIEWS ================= */
+.customer-reviews {
+  padding: 60px 0;
+  background: #ffffff;
+}
+
+.review-card {
+  background: #f9fafb;
+  margin-top: 10px;
+  border-radius: 16px;
+  padding: 25px 20px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+
+  /* 🔑 KEY FIX */
+  height: 100%;
+  min-height: 360px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review-card:hover {
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+}
+
+.review-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 12px;
+}
+
+.review-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.review-location {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.review-stars {
+  color: #facc15;
+  margin-bottom: 12px;
+}
+
+.review-text {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+
+  /* 🔑 Keeps text balanced */
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* --- 7. Recommended Section Layout --- */
+.recommended-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* Light grey background to separate from hero */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* --- 8. The Grid System --- */
+.services-grid {
+    display: grid;
+    /* Desktop: 4 Columns */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px;
+}
+
+/* --- 9. Service Card Styling --- */
+.service-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden; /* Keeps image inside corners */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hover Effect: Lift up */
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ffc107; /* Gold color for rating */
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1; /* Pushes button to bottom */
+}
+
+.service-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.shop-name {
+    font-size: 1.2rem;
+    color: #777;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.location-info {
+    font-size: 1.2rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.btn-details {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: white;
+    border: 1px solid #007bff;
+    color: #007bff;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-details:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* --- 1. Global Micro-Interactions --- */
+.category-card, .shop-card, .service-card, .p-btn, .btn-search {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+/* --- 2. Hero Search Bar Animation --- */
+.search-form {
+    animation: slideUpFade 1s ease-out forwards;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulsing effect for the Search Button */
+.btn-search {
+    animation: pulseBlue 2s infinite;
+}
+
+@keyframes pulseBlue {
+    0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 123, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+}
+
+/* --- 3. Category Card Hover Enhancement --- */
+.category-card:hover {
+    background: var(--p-blue);
+    color: white !important;
+    transform: translateY(-10px) scale(1.05);
+}
+
+.category-card:hover i {
+    color: white !important;
+    transform: rotate(15deg) scale(1.2);
+    transition: 0.3s ease;
+}
+
+/* --- 4. Service Card Image Zoom --- */
+.card-image {
+    overflow: hidden;
+}
+
+.card-image img {
+    transition: transform 0.8s ease;
+}
+
+.service-card:hover .card-image img {
+    transform: scale(1.15);
+}
+
+/* --- 5. Join-Us Section Visual Animation --- */
+/* You already have the float animation, let's make it smoother */
+.p-stat {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+/* --- 6. Mobile Optimization for Animations --- */
+@media (max-width: 768px) {
+    /* Reduce movement on mobile to prevent lag */
+    .category-card:hover, .service-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    /* Disable AOS animations on very small screens for performance */
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+
+/* Add these new styles to your CSS file or style block */
+
+/* Generic styles for centering and margin (assuming no Bootstrap) */
+.text-center {
+    text-align: center;
+}
+
+.mt-5 {
+    margin-top: 40px; /* Provides separation from the cards */
+}
+
+/* --- New Styles for the "View All Services" Button --- */
+
+.btn-view-all {
+    /* Style the button to be prominent, using the primary blue color */
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    
+    background-color: #007bff; /* Primary blue color */
+    color: #ffffff;
+    border: 2px solid #007bff; 
+    padding: 12px 30px;
+    border-radius: 50px; /* Pill shape */
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-view-all:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3;
+}
+
+.btn-lg {
+    /* Ensures the button is large and noticeable */
+    min-width: 200px; 
+}
+
+/* Responsive adjustment for the View All Button on small screens */
+@media (max-width: 576px) {
+    .btn-lg {
+        width: 90%; /* Make the button wider on small phones */
+        min-width: unset;
+    }
+      .nav-links a {
+    color: #ffffff;
+  }
+  .nav-avatar-small{
+    display: none;
+  }
+}
+
+/* --- 10. Responsive Grid (Media Queries) --- */
+
+/* Tablet (Under 1024px): 2 Cards per row */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* Mobile (Under 600px): 1 Card per row */
+@media (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .review-card{
+        margin-top: 15px;
+    }
+    
+    .section-title {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+}
+
+/* ================= FOOTER ================= */
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 59.5px;
+        right: 0;
+        background: #0f172a;
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        padding: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+
+ .hero-section {
+            width: 100%;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Background Image with a dark overlay for text contrast */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+        }
+
+        /* --- 3. The Search Container (Glassmorphism) --- */
+        .search-wrapper {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .search-title {
+            color: white;
+            font-size: 4.2rem;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* --- 4. The Form Layout --- */
+        .search-form {
+            display: flex;
+            background: rgba(255, 255, 255, 0.95); /* High opacity for readability */
+            padding: 10px;
+            border-radius: 50px; /* Fully rounded pill shape */
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transition: all 0.3s ease;
+        }
+
+        /* Wrapper for inputs to handle icons */
+        .input-group {
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .input-group i {
+            color: #666;
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Input Fields Styling */
+        .myinput {
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 1.3rem;
+            color: #333;
+            height: 50px;
+            width: 100%;
+        }
+
+        /* --- 5. The Split (70% / 30%) --- */
+        .service-search {
+            flex: 7; /* Takes up 70% roughly */
+            border-right: 1px solid #ddd; /* Divider line */
+        }
+
+        .location-search {
+            flex: 3; /* Takes up 30% roughly */
+        }
+
+        /* Search Button */
+        .btn-search {
+            background-color: #007bff; /* Blue brand color */
+            color: white;
+            border: none;
+            border-radius: 50px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0; /* Prevents button from squishing */
+        }
+        .search-subtitle{
+            color: rgb(194, 194, 194);
+            font-size: 15px;
+        }
+
+        .btn-search:hover {
+            background-color: #0056b3;
+        }
+
+        /* --- 6. Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .hero-section {
+                align-items: flex-start;
+                padding-top: 150px;
+            }
+
+            .search-title {
+                font-size: 1.8rem;
+            }
+
+            .search-form {
+                flex-direction: column; /* Stack vertically */
+                border-radius: 20px; /* Less rounded on mobile */
+                padding: 15px;
+                gap: 10px;
+            }
+
+            .service-search {
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+                width: 100%;
+                flex: auto;
+            }
+
+            .location-search {
+                width: 100%;
+                flex: auto;
+            }
+
+            .btn-search {
+                width: 100%; /* Full width button on mobile */
+                border-radius: 10px;
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+
+            /* Add text to button on mobile only */
+            .btn-search::after {
+                content: " Search";
+                margin-left: 8px;
+            }
+        }
+
+
+
+        
