@@ -1,0 +1,62 @@
+  body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+        }
+        .section {
+            padding: 60px 0;
+        }
+        .hero {
+            background: linear-gradient(135deg, #f5f9ff, #eef3ff);
+            text-align: center;
+            padding: 70px 20px;
+        }
+        .hero h1 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            color: #555;
+            font-size: 16px;
+        }
+        .faq-panel {
+            margin-bottom: 15px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .panel-heading {
+            background: #fff !important;
+            padding: 0;
+        }
+        .panel-title a {
+            display: block;
+            padding: 18px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #333;
+        }
+        .panel-title a:hover {
+            background: #f7f9ff;
+        }
+        .panel-title i {
+            margin-right: 10px;
+            color: #337ab7;
+        }
+        .panel-body {
+            background: #fafafa;
+            padding: 20px;
+            color: #555;
+        }
+        .cta {
+            background: #f7f7f7;
+            text-align: center;
+        }
+        .cta .btn {
+            margin: 10px;
+            padding: 12px 30px;
+        }
+        @media (max-width: 767px) {
+            .hero h1 {
+                font-size: 26px;
+            }
+        }

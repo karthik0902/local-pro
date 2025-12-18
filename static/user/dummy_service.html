@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../index.css">
+<link rel="stylesheet" href="../styles/srvicedetails.css">
+
+<title>24K Gold Luxury Facial - Premium Experience</title>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">Local Services</a>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="nav-links" id="navLinks">
+              <form class="search-form1" id="localServiceForm">
+                <div class="input-group service-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="serviceInput" placeholder="Search for Beauty, Spa, etc.">
+                </div>
+                <div class="input-group location-search">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="text" id="locationInput" placeholder="Location">
+                </div>
+                <button type="submit" class="btn-search">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Login</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+ <section class="service-hero" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/20758188/pexels-photo-20758188.jpeg'); background-size: cover; background-position: center;">
+    <div class="overlay">
+        <div class="container">
+            <h1>24K Gold Luxury Facial</h1>
+            <p>
+                <i class="fa fa-map-marker"></i> Banjara Hills, Hyderabad |
+                <i class="fa fa-star"></i> 4.9 (215 Reviews)
+            </p>
+            <a href="../booking.html" class="btn btn-warning btn-lg">Book Appointment</a>
+        </div>
+    </div>
+</section>
+
+<div class="container service-content">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <h3>Service Overview</h3>
+                <p>
+                    Experience the ultimate skin rejuvenation with our 24K Gold Luxury Facial. This premium treatment uses real gold particles to boost collagen, improve skin elasticity, and leave you with a radiant, youthful glow.
+                </p>
+                <ul class="service-features">
+                    <li><i class="fa fa-check-circle"></i> Deep Cleansing & Exfoliation</li>
+                    <li><i class="fa fa-check-circle"></i> Real 24K Gold Foil Mask Application</li>
+                    <li><i class="fa fa-check-circle"></i> Relaxing Face, Neck & Shoulder Massage</li>
+                </ul>
+                <p><strong>Price:</strong> ₹1,499 (Premium Session)</p>
+                <p><strong>Duration:</strong> 60–90 Minutes</p>
+            </div>
+
+            <div class="card">
+                <h3>Service Gallery</h3>
+                <div class="row gallery">
+                    <div class="col-xs-2">
+                        <img src="https://images.pexels.com/photos/33940225/pexels-photo-33940225.jpeg" class="img-responsive" style="border-radius: 8px; height: 150px; object-fit: cover;">
+                    </div>
+                    <div class="col-xs-4">
+                        <img src="https://images.pexels.com/photos/9775368/pexels-photo-9775368.jpeg" class="img-responsive" style="border-radius: 8px; height: 150px; object-fit: cover;">
+                    </div>
+                    <div class="col-xs-4">
+                        <img src="https://images.pexels.com/photos/6977868/pexels-photo-6977868.jpeg" class="img-responsive" style="border-radius: 8px; height: 150px; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Customer Reviews</h3>
+                <div class="review">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg">
+                    <div>
+                        <strong>Priya Reddy</strong>
+                        <p class="stars">★★★★★</p>
+                        <p>Incredible experience. My skin feels incredibly firm and glowing. Worth every rupee!</p>
+                    </div>
+                </div>
+                <div class="review">
+                    <img src="https://randomuser.me/api/portraits/women/48.jpg">
+                    <div>
+                        <strong>Sneha Kapoor</strong>
+                        <p class="stars">★★★★★</p>
+                        <p>The gold leaf mask felt so luxurious. The staff at Glow & Grace are true professionals.</p>
+                    </div>
+                </div>
+                <button type="button" id="writeReviewBtn" class="btn btn-default">Write a Review</button>
+                <form id="reviewForm" style="display:none; margin-top:15px;">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" class="form-control" id="reviewName" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label>Rating</label>
+                        <select id="reviewRating" class="form-control">
+                            <option value="5">★★★★★ - Excellent</option>
+                            <option value="4">★★★★☆ - Good</option>
+                            <option value="3">★★★☆☆ - Average</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Review</label>
+                        <textarea id="reviewText" class="form-control" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card provider-card">
+                <img src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg" class="img-responsive" alt="Glow & Grace Studio" style="border-radius: 12px; margin-bottom: 15px;">
+                <h4>Glow & Grace Beauty Studio</h4>
+                <p><i class="fa fa-map-marker"></i> Banjara Hills, Hyderabad</p>
+                <p><i class="fa fa-phone"></i> +91 99887 76655</p>
+                <a href="#" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Call Studio</a>
+                <a href="../booking.html" class="btn btn-primary btn-block"><i class="fa fa-calendar"></i> Book Appointment</a>
+            </div>
+        </div>
+    </div>
+</div>
+ </main>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div>
+            <h3>About</h3>
+            <p>Premium beauty and wellness solutions for your everyday glow.</p>
+        </div>
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </div>
+        <div>
+            <h3>Support</h3>
+            <a href="#">Help Center</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2025 Local Beauty Hub. All rights reserved.
+    </div>
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+document.addEventListener('DOMContentLoaded', function () {
+    var btn = document.getElementById('writeReviewBtn');
+    var form = document.getElementById('reviewForm');
+    if (btn && form) {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            var isVisible = form.style.display === 'block';
+            form.style.display = isVisible ? 'none' : 'block';
+            btn.textContent = isVisible ? 'Write a Review' : 'Close Review';
+        });
+    }
+});
+</script>
+
+</body>
+</html>

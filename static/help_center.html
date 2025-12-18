@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./footer.css">
+
+    <title>Help Center | Local Services</title>
+    
+    <style>
+        :root {
+            --color-primary: #0ea5e9;
+            --color-secondary: #1e3a8a;
+            --color-bg: #f8fafc;
+            --color-text: #0f172a;
+            --color-muted: #64748b;
+            --radius: 12px;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--color-bg); 
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* --- Modernized Navbar --- */
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-secondary);
+            text-decoration: none !important;
+        }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a {
+            color: var(--color-text);
+            font-weight: 500;
+            font-size: 14px;
+            transition: 0.2s;
+            text-decoration: none !important;
+        }
+        .nav-links a:hover { color: var(--color-primary); }
+        .nav-links .btn-login {
+            background: var(--color-secondary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+        }
+        .menu-toggle { display: none; font-size: 24px; cursor: pointer; }
+
+        /* --- Hero Section --- */
+        .help-hero {
+            background: radial-gradient(circle at top left, #1e3a8a, #0f172a);
+            color: white; 
+            padding: 80px 20px; 
+            text-align: center; 
+            border-radius: 0 0 40px 40px;
+        }
+        .search-box {
+            max-width: 650px; 
+            margin: 30px auto 0; 
+            position: relative;
+        }
+        .search-box input {
+            height: 60px; 
+            border-radius: 16px; 
+            padding-left: 55px; 
+            font-size: 16px; 
+            border: none; 
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+        }
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            color: #94a3b8;
+            font-size: 18px;
+        }
+
+        /* --- Grid & Cards --- */
+        .category-grid {
+            margin-top: -40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 0 20px;
+        }
+        .help-card {
+            background: white; 
+            border-radius: var(--radius); 
+            padding: 35px 20px;
+            text-align: center; 
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            border: 1px solid transparent;
+            text-decoration: none !important;
+            display: block;
+        }
+        .help-card:hover { 
+            transform: translateY(-8px); 
+            border-color: var(--color-primary);
+        }
+        .help-card i { 
+            font-size: 32px; 
+            color: var(--color-primary); 
+            margin-bottom: 15px; 
+            background: #f0f9ff;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+        }
+        .help-card h4 { font-weight: 600; color: var(--color-text); }
+
+        /* --- FAQ Modern Accordion --- */
+        .faq-section { 
+            background: white; 
+            border-radius: 20px; 
+            padding: 40px; 
+            margin: 50px auto;
+            max-width: 900px;
+            box-shadow: var(--shadow);
+        }
+        .panel-default { border: none; margin-bottom: 10px; }
+        .panel-heading { 
+            background: #f8fafc !important; 
+            border-radius: 10px !important;
+            transition: 0.2s;
+        }
+        .panel-heading:hover { background: #f1f5f9 !important; }
+        .panel-title a { 
+            font-weight: 600; 
+            color: var(--color-text); 
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* --- Support Box --- */
+        .support-box {
+            background: white;
+            padding: 50px;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            border: 1px solid #e2e8f0;
+        }
+        .btn-primary-custom {
+            background: var(--color-primary);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 10px;
+            font-weight: 600;
+            border: none;
+            transition: 0.2s;
+        }
+        .btn-primary-custom:hover { background: #0284c7; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .category-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                border-bottom: 1px solid #eee;
+                gap: 15px;
+            }
+            .nav-links.active { display: flex; }
+            .category-grid { grid-template-columns: 1fr; margin-top: 20px; }
+            .help-hero h1 { font-size: 24px; }
+            .faq-section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">LocalServices</a>
+        <div class="menu-toggle" onclick="toggleMenu()"><i class="fa fa-bars"></i></div>
+        <div class="nav-links" id="navLinks">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Sign Up</a>
+            <a href="#" class="btn-login">Login</a>
+        </div>
+    </div>
+</nav>
+
+<main class="container">
+    <div class="help-hero">
+        <h1 style="font-weight: 700;">How can we help you?</h1>
+        <p style="color: #cbd5e1; font-size: 16px;">Everything you need to know about using our platform</p>
+        <div class="search-box">
+            <i class="fa fa-search search-icon"></i>
+            <input type="text" class="form-control" placeholder="Search articles (e.g., payment, security)">
+        </div>
+    </div>
+
+    <div class="category-grid">
+        <a href="#" class="help-card">
+            <i class="fa-solid fa-calendar-check"></i>
+            <h4>Bookings</h4>
+            <p class="small text-muted">Learn how to schedule or track services</p>
+        </a>
+        <a href="#" class="help-card">
+            <i class="fa-solid fa-wallet"></i>
+            <h4>Payments</h4>
+            <p class="small text-muted">Manage invoices and refund policies</p>
+        </a>
+        <a href="#" class="help-card">
+            <i class="fa-solid fa-user-gear"></i>
+            <h4>Account</h4>
+            <p class="small text-muted">Update profile and security settings</p>
+        </a>
+        <a href="#" class="help-card">
+            <i class="fa-solid fa-user-shield"></i>
+            <h4>Safety</h4>
+            <p class="small text-muted">Our insurance and verification trust</p>
+        </a>
+    </div>
+
+    <div class="faq-section">
+        <h3 style="text-align: center; font-weight: 700; margin-bottom: 30px;">Most Popular Questions</h3>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                            How do I cancel a service booking?
+                            <i class="fa fa-chevron-down small"></i>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        You can cancel through your <strong>Dashboard > My Bookings</strong>. Cancellations made 24 hours prior are eligible for a full refund.
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="collapsed">
+                            What if I'm not happy with the service?
+                            <i class="fa fa-chevron-down small"></i>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        We offer a 100% Satisfaction Guarantee. Contact our support within 48 hours for a re-service or credit.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="support-box">
+        <h3 style="font-weight: 700;">Still need assistance?</h3>
+        <p class="text-muted">Can't find what you're looking for? Reach out to our 24/7 team.</p>
+        <div style="margin-top: 25px;">
+            <a href="mailto:support@local.com" class="btn btn-primary-custom">Chat With Us</a>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <div class="footer-container">
+        <div>
+            <h3>About</h3>
+            <p>Professional local services platform providing quality solutions.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="./index.html">Home</a>
+            <a href="./joinus.html">Pricing</a>
+            <a href="./faq.html">Faq</a>
+            <a href="./contact.html">Contact</a>
+        </div>
+
+        <div>
+            <h3>Support</h3>
+            <a href="#">Help Center</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 MyWebsite. All rights reserved.
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+    }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

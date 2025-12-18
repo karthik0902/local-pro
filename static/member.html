@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Member Profile | Local Services</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- YOUR CSS LAST -->
+<link rel="stylesheet" href="./index.css">
+  <style>
+    body {
+      background: #f5f7fb;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+    .page-wrap { max-width: 1200px; }
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: #fff;
+      border-radius: 12px;
+      margin-top: 20px;
+      padding: 22px 24px;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 30px rgba(15,23,42,0.35);
+    }
+    .hero .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #1e3a8a;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      border: 3px solid rgba(255,255,255,0.35);
+    }
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 40px;
+      font-size: 12px;
+      background: rgba(255,255,255,0.18);
+      color: #e0e7ff;
+      margin-right: 6px;
+      margin-top: 4px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e8ebf3;
+      border-radius: 10px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.05);
+      margin-bottom: 28px;
+    }
+    .card-header {
+      padding: 14px 18px;
+      border-bottom: 1px solid #eef1f6;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .card-body { padding: 18px; }
+    .metric {
+      text-align: center;
+      padding: 12px 10px;
+    }
+    .metric h3 { margin: 0; font-weight: 700; color: #0f172a; }
+    .metric small { color: #607d8b; }
+    .list-group-item {
+      border: 0;
+      border-bottom: 1px solid #eef1f6;
+    }
+    .status-badge {
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      color: #fff;
+      background: #22c55e;
+    }
+    .status-badge.pending { background: #f59e0b; }
+    .status-badge.cancelled { background: #ef4444; }
+    .label-level {
+      background: #22c55e;
+      padding: 6px 10px;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .hero .media {
+      display: flex;
+      align-items: center;
+    }
+    .hero .media-left {
+      display: flex;
+      align-items: center;
+    }
+    @media (max-width: 767px) {
+      .hero { text-align: center; }
+      .hero .media {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero .media-left {
+        margin-bottom: 10px;
+        justify-content: center;
+      }
+      .hero .media-body {
+        padding-left: 0 !important;
+      }
+      .label-level {
+        display: inline-block;
+        margin-top: 6px;
+      }
+      .hero .text-right {
+        text-align: center;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+    <nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">Local Services</a>
+
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+</nav>
+  <div class="container page-wrap">
+    <div class="hero">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12">
+          <div class="media">
+            <div class="media-left">
+              <div class="avatar">AK</div>
+            </div>
+            <div class="media-body" style="padding-left:12px;">
+              <h3 style="margin:0 0 6px;">Aarav Kumar <span class="label-level">Plus Member</span></h3>
+              <div class="pill">Since 2023</div>
+              <div class="pill"><span class="glyphicon glyphicon-star"></span> 4.9 rating</div>
+              <div class="pill"><span class="glyphicon glyphicon-map-marker"></span> Bengaluru</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-12 text-right">
+          <button class="btn btn-default" style="margin-bottom:6px;"><span class="glyphicon glyphicon-pencil"></span> Edit Profile</button>
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="card">
+          <div class="card-header">Profile & Contact</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <p><strong>Email:</strong> aarav.k@example.com</p>
+                <p><strong>Phone:</strong> +91 98765 43210</p>
+                <p><strong>Address:</strong> 221B, MG Road, Bengaluru</p>
+              </div>
+              <div class="col-sm-6">
+                <p><strong>Preferred Time:</strong> 10 AM - 1 PM</p>
+                <p><strong>Preferred Days:</strong> Sat - Sun</p>
+                <p><strong>Communication:</strong> WhatsApp + Email</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Upcoming Bookings</div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8">
+                  <strong>AC Service & Cleaning</strong>
+                  <div class="text-muted">Jan 20, 2026 · 11:00 AM · ElectroFix Pros</div>
+                </div>
+                <div class="col-xs-4 text-right">
+                  <span class="status-badge">Confirmed</span>
+                  <div class="text-muted">₹ 799 + fees</div>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8">
+                  <strong>Deep Home Cleaning</strong>
+                  <div class="text-muted">Feb 02, 2026 · 2:00 PM · Sparkle Crew</div>
+                </div>
+                <div class="col-xs-4 text-right">
+                  <span class="status-badge pending">Pending</span>
+                  <div class="text-muted">₹ 2,799</div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Past Services</div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8">
+                  <strong>Electrician On-Demand</strong>
+                  <div class="text-muted">Dec 15, 2025 · Fixed MCB & lights · VoltSure</div>
+                </div>
+                <div class="col-xs-4 text-right">
+                  <span class="status-badge">Completed</span>
+                  <div class="text-muted">₹ 599</div>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8">
+                  <strong>Pest Control Spray</strong>
+                  <div class="text-muted">Nov 10, 2025 · Cockroach/Ant · BugZero</div>
+                </div>
+                <div class="col-xs-4 text-right">
+                  <span class="status-badge cancelled">Cancelled</span>
+                  <div class="text-muted">₹ 0</div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-header">Membership Stats</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-xs-4 metric">
+                <h3>24</h3>
+                <small>Completed</small>
+              </div>
+              <div class="col-xs-4 metric">
+                <h3>3</h3>
+                <small>Upcoming</small>
+              </div>
+              <div class="col-xs-4 metric">
+                <h3>₹12k</h3>
+                <small>Lifetime spend</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Payment & Security</div>
+          <div class="card-body">
+            <p><strong>Saved Method:</strong> **** 4242 (Visa)</p>
+            <p><strong>Billing Email:</strong> aarav.k@example.com</p>
+            <p><span class="glyphicon glyphicon-lock"></span> Secure payments enabled</p>
+            <!-- <button class="btn btn-accent btn-block" style="background:#1e88e5; border-color:#1e88e5; color:#fff;">Manage Payments</button> -->
+          </div>
+        </div>
+
+    
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="footer">
+    <div class="footer-container">
+        <div>
+            <h3>About</h3>
+            <p>Professional local services platform providing quality solutions.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div>
+            <h3>Support</h3>
+            <a href="#">Help Center</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 MyWebsite. All rights reserved.
+    </div>
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

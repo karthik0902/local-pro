@@ -1,0 +1,35 @@
+body {
+    background: linear-gradient(180deg, #416DE7 20.6%, #A165DD 100%);
+    font-family: "Poppins", sans-serif;
+}
+
+.form-card {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.form-control {
+    border-radius: 10px;
+    padding: 10px 12px;
+    border: none;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 5px rgba(255,255,255,0.8);
+}
+
+.btn-light {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+@media (max-width: 576px) {
+    .form-card {
+        margin: 20px;
+        padding: 30px;
+    }
+}

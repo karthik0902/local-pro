@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap FIRST -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- YOUR CSS LAST -->
+<link rel="stylesheet" href="../index.css">
+
+<title>Sticky Navbar & Footer</title>
+
+
+
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">Local Services</a>
+
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Login</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ================= CONTENT ================= -->
+ <main>
+
+<section class="featured-shops">
+  <div class="container">
+    <h2 class="section-title">Featured Local Shops</h2>
+
+    <div class="row">
+
+      <div class="col-md-4 col-sm-6">
+        <div class="shop-card">
+          <img src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg"
+               alt="Beauty Salon" class="shop-img img-responsive">
+
+          <div class="shop-content">
+            <h4 class="shop-name">Glow Beauty Salon</h4>
+            <p class="shop-location">
+              <i class="fa fa-map-marker"></i> Anna Nagar, Chennai
+            </p>
+            <a href="./shop_details.html" class="btn btn-primary btn-block">
+              view details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="shop-card">
+          <img src="https://images.pexels.com/photos/4792509/pexels-photo-4792509.jpeg"
+               alt="Electrician" class="shop-img img-responsive">
+
+          <div class="shop-content">
+            <h4 class="shop-name">Spark Electric Works</h4>
+            <p class="shop-location">
+              <i class="fa fa-map-marker"></i> BTM Layout, Bengaluru
+            </p>
+            <a href="./user/shop_details.html" class="btn btn-primary btn-block">
+              View details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="shop-card">
+          <img src="https://images.pexels.com/photos/4194862/pexels-photo-4194862.jpeg"
+               alt="Plumber" class="shop-img img-responsive">
+
+          <div class="shop-content">
+            <h4 class="shop-name">QuickFix Plumbing</h4>
+            <p class="shop-location">
+              <i class="fa fa-map-marker"></i> Hitech City, Hyderabad
+            </p>
+            <a href="./user/shop_details.html" class="btn btn-primary btn-block">
+              View details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="shop-card">
+          <img src="https://images.pexels.com/photos/7347538/pexels-photo-7347538.jpeg"
+               alt="AC Repair Technician" class="shop-img img-responsive">
+
+          <div class="shop-content">
+            <h4 class="shop-name">Cool Breeze AC Service</h4>
+            <p class="shop-location">
+              <i class="fa fa-map-marker"></i> Gachibowli, Hyderabad
+            </p>
+            <a href="./user/shop_details.html" class="btn btn-primary btn-block">
+              View details
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 col-sm-6">
+        <div class="shop-card">
+          <img src="https://images.pexels.com/photos/6872595/pexels-photo-6872595.jpeg"
+               alt="Car Wash" class="shop-img img-responsive">
+
+          <div class="shop-content">
+            <h4 class="shop-name">Rapid Car Spa & Detailing</h4>
+            <p class="shop-location">
+              <i class="fa fa-map-marker"></i> Koramangala, Bengaluru
+            </p>
+            <a href="./user/shop_details.html" class="btn btn-primary btn-block">
+              View details
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 col-sm-6">
+        <div class="shop-card">
+          <img src="https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg"
+               alt="Photographer" class="shop-img img-responsive">
+
+          <div class="shop-content">
+            <h4 class="shop-name">Eternal Moments Photography</h4>
+            <p class="shop-location">
+              <i class="fa fa-map-marker"></i> T. Nagar, Chennai
+            </p>
+            <a href="./user/shop_details.html" class="btn btn-primary btn-block">
+              View details
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+    </div> 
+    
+  
+    </div>
+</section>
+ </main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <div class="footer-container">
+        <div>
+            <h3>About</h3>
+            <p>Professional local services platform providing quality solutions.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div>
+            <h3>Support</h3>
+            <a href="#">Help Center</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 MyWebsite. All rights reserved.
+    </div>
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,135 @@
+  .search-wrapper {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .search-title {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* --- 4. The Form Layout --- */
+        .search-form1 {
+            display: flex;
+            background: rgba(255, 255, 255, 0.95); /* High opacity for readability */
+            padding: 5px;
+            margin-right: 25px;
+            border-radius: 50px; /* Fully rounded pill shape */
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transition: all 0.3s ease;
+        }
+
+        /* Wrapper for inputs to handle icons */
+        .input-group {
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .input-group i {
+            color: #666;
+            margin-right: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Input Fields Styling */
+        input {
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 1.3rem;
+            color: #333;
+            height: 30px;
+            width: 100%;
+        }
+
+        /* --- 5. The Split (70% / 30%) --- */
+        .service-search {
+            flex: 7; /* Takes up 70% roughly */
+            border-right: 1px solid #ddd; /* Divider line */
+        }
+
+        .location-search {
+            flex: 3; /* Takes up 30% roughly */
+        }
+
+        /* Search Button */
+        .btn-search {
+            background-color: #007bff; /* Blue brand color */
+            color: white;
+            border: none;
+            border-radius: 50px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0; /* Prevents button from squishing */
+        }
+        .search-subtitle{
+            color: rgb(194, 194, 194);
+            font-size: 15px;
+        }
+
+        .btn-search:hover {
+            background-color: #0056b3;
+        }
+        .nav-links a{
+            margin-top: 10px;
+
+        }
+
+        /* --- 6. Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .hero-section {
+                align-items: flex-start;
+                padding-top: 150px;
+            }
+
+            .search-title {
+                font-size: 1.8rem;
+            }
+
+            .search-form1 {
+                flex-direction: column; /* Stack vertically */
+                border-radius: 20px; /* Less rounded on mobile */
+                padding: 15px;
+                 margin-right: 0px;
+                gap: 10px;
+            }
+
+            .service-search {
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+                width: 100%;
+                flex: auto;
+            }
+
+            .location-search {
+                width: 100%;
+                flex: auto;
+            }
+
+            .btn-search {
+                width: 100%; /* Full width button on mobile */
+                border-radius: 10px;
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+
+            /* Add text to button on mobile only */
+            .btn-search::after {
+                content: " Search";
+                margin-left: 8px;
+            }
+        }

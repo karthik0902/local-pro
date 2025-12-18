@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Terms of Service | Local Services</title>
+    <link rel="stylesheet" href="./footer.css">
+    <style>
+        :root {
+            --brand-primary: #0ea5e9;
+            --brand-dark: #0f172a;
+            --brand-accent: #8b5cf6;
+            --bg-surface: #f8fafc;
+            --text-body: #475569;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--bg-surface); 
+            color: var(--text-body);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Header --- */
+        .terms-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            padding: 100px 20px 140px;
+            color: white;
+            text-align: center;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        /* --- Layout --- */
+        .content-wrapper {
+            max-width: 1140px;
+            margin: -80px auto 80px;
+            padding: 0 15px;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+        }
+
+        /* --- Sidebar --- */
+        .toc-sidebar {
+            position: sticky;
+            top: 40px;
+            height: fit-content;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+        .toc-sidebar h5 { 
+            font-weight: 800; 
+            color: var(--brand-dark); 
+            font-size: 11px; 
+            letter-spacing: 1.5px; 
+            text-transform: uppercase;
+            margin-bottom: 20px; 
+        }
+        .toc-link {
+            display: block;
+            padding: 12px 0;
+            color: #64748b;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none !important;
+            transition: 0.3s;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .toc-link:hover { color: var(--brand-primary); padding-left: 5px; }
+        .toc-link.active { color: var(--brand-primary); border-right: 3px solid var(--brand-primary); }
+
+        /* --- Article --- */
+        .terms-article {
+            background: white;
+            border-radius: 24px;
+            padding: 50px;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+        }
+        
+        section { margin-bottom: 60px; scroll-margin-top: 40px; }
+        h2 { font-weight: 800; color: var(--brand-dark); font-size: 26px; margin-top: 0; }
+        
+        .tldr-box {
+            background: #fdf2f8;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+            display: flex;
+            gap: 15px;
+            border: 1px solid #fce7f3;
+        }
+        .tldr-box i { color: #db2777; font-size: 20px; }
+        .clause-number { color: var(--brand-primary); font-weight: 800; margin-right: 10px; }
+
+        @media (max-width: 992px) {
+            .grid-layout { grid-template-columns: 1fr; }
+            .toc-sidebar { display: none; }
+            .terms-article { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="terms-hero">
+    <div class="container">
+        <h1 style="font-weight: 800; font-size: clamp(32px, 5vw, 48px);">Terms of Service</h1>
+        <p style="opacity: 0.8; font-size: 18px; max-width: 600px; margin: 15px auto;">Last updated: October 2023</p>
+    </div>
+</header>
+
+<div class="content-wrapper">
+    <div class="grid-layout">
+        <aside class="toc-sidebar">
+            <h5>Table of Contents</h5>
+            <a href="#acceptance" class="toc-link active">01. Acceptance</a>
+            <a href="#user-accounts" class="toc-link">02. User Accounts</a>
+            <a href="#payments" class="toc-link">03. Payments</a>
+            <a href="#prohibited" class="toc-link">04. Conduct</a>
+            <a href="#liability" class="toc-link">05. Liability</a>
+            <a href="#termination" class="toc-link">06. Termination</a>
+        </aside>
+
+        <article class="terms-article">
+            <section id="acceptance">
+                <h2><span class="clause-number">01</span> Acceptance of Terms</h2>
+                <p>By accessing or using the Local Services platform, you agree to be bound by these Terms and Conditions and our Privacy Policy. If you do not agree, please discontinue use immediately.</p>
+                <div class="tldr-box">
+                    <i class="fa-solid fa-bolt"></i>
+                    <div class="tldr-text">
+                        <strong>The Gist:</strong> Using our app means you agree to our rules.
+                    </div>
+                </div>
+            </section>
+
+            <section id="user-accounts">
+                <h2><span class="clause-number">02</span> User Accounts</h2>
+                <p>To access certain features, you must register for an account. You are responsible for maintaining the security of your login credentials.</p>
+                <ul class="list-unstyled">
+                    <li><i class="fa-solid fa-check text-success"></i> Must be at least 18 years old.</li>
+                    <li><i class="fa-solid fa-check text-success"></i> Provide accurate information.</li>
+                </ul>
+            </section>
+
+            <section id="payments">
+                <h2><span class="clause-number">03</span> Payments & Refunds</h2>
+                <p>Local Services acts as a facilitator for payments. All fees are displayed clearly before booking.</p>
+                <div class="tldr-box" style="background: #f0fdf4; border-color: #dcfce7;">
+                    <i class="fa-solid fa-receipt" style="color: #16a34a;"></i>
+                    <div class="tldr-text" style="color: #15803d;">
+                        <strong>Refund Policy:</strong> 100% refund if cancelled 24 hours in advance.
+                    </div>
+                </div>
+            </section>
+
+            <section id="prohibited">
+                <h2><span class="clause-number">04</span> Prohibited Conduct</h2>
+                <p>Users may not use the service for any illegal activities, harassment, or to circumvent the platform's payment systems.</p>
+            </section>
+
+            <section id="liability">
+                <h2><span class="clause-number">05</span> Limitation of Liability</h2>
+                <p>Local Services shall not be liable for any indirect, incidental, or consequential damages resulting from your use of the platform.</p>
+            </section>
+
+            <section id="termination" style="background: #fff1f2; padding: 30px; border-radius: 20px; border: 1px solid #fecdd3;">
+                <h2 style="color: #9f1239;"><i class="fa-solid fa-circle-xmark"></i> Account Termination</h2>
+                <p style="color: #be123c;">We reserve the right to terminate accounts that violate our terms or harm the community.</p>
+            </section>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <p class="text-muted small">Need a physical copy? <a href="#" style="color: var(--brand-primary); font-weight: 700;">Download as PDF</a></p>
+            </div>
+        </article>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div>
+            <h3>About</h3>
+            <p>Professional local services platform providing quality solutions.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="./index.html">Home</a>
+            <a href="./joinus.html">Pricing</a>
+            <a href="./faq.html">Faq</a>
+            <a href="./contact.html">Contact</a>
+        </div>
+
+        <div>
+            <h3>Support</h3>
+            <a href="#">Help Center</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 MyWebsite. All rights reserved.
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            var scrollDistance = $(window).scrollTop();
+
+            $('section').each(function(i) {
+                if ($(this).position().top <= scrollDistance + 100) {
+                    $('.toc-sidebar a.active').removeClass('active');
+                    $('.toc-sidebar a').eq(i).addClass('active');
+                }
+            });
+        }).scroll();
+    });
+</script>
+</body>
+</html>

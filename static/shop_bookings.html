@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./footer.css">
+
+<title>Shop Owner Dashboard</title>
+
+<style>
+    /* ---------------------------------------------------- */
+    /* 1. Global & Variables */
+    /* ---------------------------------------------------- */
+    :root {
+        --color-primary: #1890FF; /* Deep Blue */
+        --color-accent: #00BF63;  /* Bright Green */
+        --color-danger: #FA5252;  /* Red for critical metrics */
+        --color-warning: #FFC107; /* Yellow for pending */
+        --color-bg: #F5F7FB;      /* Soft page background */
+        --color-text-dark: #333;
+        --color-muted: #6c757d;
+        --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+        --radius-default: 8px;
+    }
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        margin: 0;
+        /* Padding for two fixed navbars (approx 50px + 55px = 105px) */
+        padding-top: 105px; 
+        background-color: var(--color-bg);
+        color: var(--color-text-dark);
+    }
+    a {
+        text-decoration: none !important;
+    }
+    
+    /* ---------------------------------------------------- */
+    /* 2. Primary Global Navbar */
+    /* ---------------------------------------------------- */
+    .navbar {
+        background-color: white;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1001; 
+        border: none; /* Override Bootstrap default border */
+        border-radius: 0;
+        min-height: 50px;
+    }
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--color-primary);
+        line-height: 50px; /* Center with min-height */
+        padding: 0;
+    }
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+    }
+    .nav-links li a {
+        color: var(--color-muted);
+        padding: 15px 10px;
+        display: block;
+        transition: color 0.3s;
+    }
+    .nav-links li a:hover {
+        color: var(--color-primary);
+        background: transparent;
+    }
+    /* Hide default Bootstrap Nav toggles/collapse functionality for custom menu */
+    .navbar-collapse.collapse.in, .navbar-toggle { display: none !important; }
+
+    /* ---------------------------------------------------- */
+    /* 3. Secondary Dashboard Navbar (CONTEXTUAL MENU) */
+    /* ---------------------------------------------------- */
+    .dashboard-nav {
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        position: fixed;
+        top: 50px; /* Positioned right below the primary navbar */
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        min-height: 55px;
+        border-bottom: 2px solid #eee;
+        padding: 0 15px;
+    }
+    .dashboard-card {
+            background: #fff;
+            border-radius: var(--radius-default);
+            box-shadow: var(--shadow-soft);
+            border: 1px solid #e8e8e8;
+            margin-bottom: 25px;
+        }
+
+    .dashboard-nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        /* Enable Horizontal Scrolling on small screens */
+        overflow-x: auto; 
+        white-space: nowrap; 
+        -webkit-overflow-scrolling: touch; 
+        scrollbar-width: none; /* Firefox */
+    }
+    /* Hide scrollbar for Chrome/Safari */
+    .dashboard-nav-container::-webkit-scrollbar {
+        display: none; 
+    }
+
+    .dashboard-nav-container a {
+        color: var(--color-text-dark);
+        font-weight: 600;
+        padding: 17px 20px;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.2s;
+        border-bottom: 3px solid transparent;
+        flex-shrink: 0; /* Prevents links from squishing */
+    }
+
+    .dashboard-nav-container a i {
+        margin-right: 8px;
+        font-size: 1.1em;
+    }
+
+    .dashboard-nav-container a:hover,
+    .dashboard-nav-container a.active {
+        color: var(--color-primary);
+        border-bottom: 3px solid var(--color-primary);
+        background-color: #f7f9fc;
+    }
+    
+    .dashboard-header {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: var(--color-text-dark);
+        padding: 17px 25px 17px 0;
+        flex-shrink: 0;
+        margin-right: 20px;
+        border-right: 1px solid #eee;
+    }
+    .dashboard-header span {
+        color: var(--color-accent);
+        font-weight: 700;
+    }
+
+
+    /* ---------------------------------------------------- */
+    /* 4. Main Content Area & Cards */
+    /* ---------------------------------------------------- */
+    main {
+        padding: 30px 15px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+   .address-col {
+        max-width: 220px;
+        font-size: 0.9em;
+        line-height: 1.4;
+        color: var(--color-muted);
+    }
+    .address-col i {
+        color: var(--color-primary);
+        margin-right: 5px;
+    }
+    
+    /* Status Dropdown Styling */
+    .status-select {
+        font-weight: 600;
+        border-radius: 4px;
+        height: 30px;
+        padding: 2px 8px;
+    }
+    .status-select.pending { color: #856404; background-color: #fff3cd; border-color: #ffeeba; }
+    .status-select.confirmed { color: #004085; background-color: #cce5ff; border-color: #b8daff; }
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">Local Services</a>
+
+        <ul class="nav-links">
+         
+            <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<nav class="dashboard-nav">
+    <div class="dashboard-nav-container">
+        
+        <div class="dashboard-header hidden-xs">
+            Welcome, Shop Owner! <span>(Online)</span>
+        </div>
+
+        <a href="./shop_owner_dashboard.html"><i class="fa fa-dashboard"></i> Overview</a>
+        <a href="./shop_bookings.html" class="active"><i class="fa fa-calendar-check-o"></i> Bookings</a>
+        <a href="./Services_Pricing.html"><i class="fa fa-wrench"></i> Services & Pricing</a>
+        <a href="./shop_reviews.html"><i class="fa fa-users"></i> Reviews</a>
+        <a href="./shop_settings.html"><i class="fa fa-cog"></i> Settings</a>
+        <a href="./shop_member.html"><i class="fa fa-user-circle-o"></i> Profile</a>
+
+    </div>
+</nav>
+
+<main class="container-fluid">
+    <div class="page-header-flex">
+        <h3><i class="fa fa-calendar-check-o"></i> Manage Bookings</h3>
+     
+    </div>
+
+  
+
+    <div class="dashboard-card">
+        <div class="table-responsive">
+            <table class="table table-hover table-bookings" style="margin-bottom:0;">
+                <thead>
+                    <tr style="background: #fafafa;">
+                        <th>Customer Details</th>
+                        <th>Service & Schedule</th>
+                        <th>Service Address</th> <th>Payment</th>
+                        <th class="text-center">Status</th> </tr>
+                </thead>
+                <tbody>
+                    <tr class="row-pending">
+                        <td>
+                            <div class="cust-info">
+                                <div class="cust-avatar">AS</div>
+                                <div>
+                                    <strong>Amit Sharma</strong><br>
+                                    <small class="text-muted"><i class="fa fa-phone"></i> +91 98980 12345</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <strong>Kitchen Deep Cleaning</strong><br>
+                            <small class="text-primary"><i class="fa fa-clock-o"></i> Today, 04:30 PM</small>
+                        </td>
+                        <td class="address-col">
+                            <i class="fa fa-map-marker"></i> Flat 402, Silver Oak Apts, HSR Layout, Sector 2, Bangalore.
+                        </td>
+                        <td>
+                            <strong>₹1,299</strong>
+                            <span class="payment-status text-cod">Cash on Service</span>
+                        </td>
+                        <td class="text-center">
+                            <select class="form-control input-sm status-select pending">
+                                <option selected>Pending</option>
+                                <option>Confirmed</option>
+                                <option>Out for Service</option>
+                                <option>Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr class="row-confirmed">
+                        <td>
+                            <div class="cust-info">
+                                <div class="cust-avatar" style="background:#e6f7ff">PL</div>
+                                <div>
+                                    <strong>Priya Lakhi</strong><br>
+                                    <small class="text-muted"><i class="fa fa-phone"></i> +91 91234 56789</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <strong>AC Gas Refilling</strong><br>
+                            <small class="text-muted"><i class="fa fa-calendar"></i> 18 Dec, 10:00 AM</small>
+                        </td>
+                        <td class="address-col">
+                            <i class="fa fa-map-marker"></i> 12/B, Green View Villa, Jubilee Hills, Road No. 36, Hyderabad.
+                        </td>
+                        <td>
+                            <strong>₹2,500</strong>
+                            <span class="payment-status text-paid">Paid Online</span>
+                        </td>
+                        <td class="text-center">
+                            <select class="form-control input-sm status-select confirmed">
+                                <option>Pending</option>
+                                <option selected>Confirmed</option>
+                                <option>Out for Service</option>
+                                <option>Completed</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="text-center" style="margin-top: 20px;">
+        <ul class="pagination">
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+        </ul>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div>
+            <h3>About</h3>
+            <p>Professional local services platform providing quality solutions.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div>
+            <h3>Support</h3>
+            <a href="#">Help Center</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 MyWebsite. All rights reserved.
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

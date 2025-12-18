@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Service Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- 1. Global Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* --- 2. Hero Section (Background) --- */
+        .hero-section {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Background Image with a dark overlay for text contrast */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+        }
+
+        /* --- 3. The Search Container (Glassmorphism) --- */
+        .search-wrapper {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .search-title {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* --- 4. The Form Layout --- */
+        .search-form {
+            display: flex;
+            background: rgba(255, 255, 255, 0.95); /* High opacity for readability */
+            padding: 10px;
+            border-radius: 50px; /* Fully rounded pill shape */
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transition: all 0.3s ease;
+        }
+
+        /* Wrapper for inputs to handle icons */
+        .input-group {
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .input-group i {
+            color: #666;
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Input Fields Styling */
+        input {
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 1rem;
+            color: #333;
+            height: 50px;
+            width: 100%;
+        }
+
+        /* --- 5. The Split (70% / 30%) --- */
+        .service-search {
+            flex: 7; /* Takes up 70% roughly */
+            border-right: 1px solid #ddd; /* Divider line */
+        }
+
+        .location-search {
+            flex: 3; /* Takes up 30% roughly */
+        }
+
+        /* Search Button */
+        .btn-search {
+            background-color: #007bff; /* Blue brand color */
+            color: white;
+            border: none;
+            border-radius: 50px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0; /* Prevents button from squishing */
+        }
+
+        .btn-search:hover {
+            background-color: #0056b3;
+        }
+
+        /* --- 6. Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .hero-section {
+                align-items: flex-start;
+                padding-top: 150px;
+            }
+
+            .search-title {
+                font-size: 1.8rem;
+            }
+
+            .search-form {
+                flex-direction: column; /* Stack vertically */
+                border-radius: 20px; /* Less rounded on mobile */
+                padding: 15px;
+                gap: 10px;
+            }
+
+            .service-search {
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+                width: 100%;
+                flex: auto;
+            }
+
+            .location-search {
+                width: 100%;
+                flex: auto;
+            }
+
+            .btn-search {
+                width: 100%; /* Full width button on mobile */
+                border-radius: 10px;
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+
+            /* Add text to button on mobile only */
+            .btn-search::after {
+                content: " Search";
+                margin-left: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="hero-section">
+        <div class="search-wrapper">
+            <h1 class="search-title">Find Local Services Near You</h1>
+            
+            <form class="search-form" id="localServiceForm">
+                
+                <div class="input-group service-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="serviceInput" placeholder="What are you looking for? (e.g. Plumber, Salon)">
+                </div>
+
+                <div class="input-group location-search">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="text" id="locationInput" placeholder="Location">
+                </div>
+
+                <button type="submit" class="btn-search">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Javascript to handle the form submission
+        const form = document.getElementById('localServiceForm');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop page from reloading
+
+            const service = document.getElementById('serviceInput').value;
+            const location = document.getElementById('locationInput').value;
+
+            if(!service && !location) {
+                alert("Please enter a service or location.");
+                return;
+            }
+
+            console.log("--- Search Initiated ---");
+            console.log("Service/Shop:", service);
+            console.log("Location:", location);
+
+            // Simulate a search action
+            alert(`Searching for "${service}" in "${location}"...`);
+        });
+    </script>
+
+</body>
+</html>

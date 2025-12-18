@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Your Shop | Local Services</title>
+  <!-- Bootstrap 3 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Shared site styles -->
+
+  <style>
+    body {
+      background-color: #f5f7fb;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+    .hero-bar {
+      background: linear-gradient(135deg, #0f172a 0%, #0ea5e9 60% 100%);
+      color: #e5f3ff;
+      padding: 24px 16px;
+      box-shadow: 0 6px 24px rgba(15,23,42,0.4);
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .hero-title {
+      margin: 0 0 4px;
+      font-size: 26px;
+      font-weight: 700;
+    }
+    .hero-subtitle {
+      margin: 0;
+      color: #bfdbfe;
+      font-size: 14px;
+    }
+    .hero-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .hero-step {
+      background: rgba(15,23,42,0.3);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #e5e7eb;
+    }
+    .hero-step span.badge {
+      background: rgba(15,23,42,0.8);
+      border-radius: 999px;
+      padding: 2px 6px;
+      font-size: 11px;
+      color: #bfdbfe;
+    }
+    .page-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px 15px 50px;
+    }
+    .page-header {
+      margin-bottom: 25px;
+    }
+    .page-header h2 {
+      margin-top: 0;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .page-header p {
+      color: #6b7280;
+      margin-bottom: 0;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 28px rgba(15,23,42,0.08);
+      margin-bottom: 20px;
+      border: 1px solid #e5e7eb;
+    }
+    .card-header {
+      padding: 14px 18px;
+      border-bottom: 1px solid #e5e7eb;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .card-body {
+      padding: 18px;
+    }
+    .section-label {
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+    .help-text {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+    .form-control {
+      border-radius: 8px;
+      border-color: #e5e7eb;
+      box-shadow: none;
+    }
+    .form-control:focus {
+      border-color: #0ea5e9;
+      box-shadow: 0 0 0 2px rgba(14,165,233,0.2);
+    }
+    .input-group-addon {
+      border-radius: 8px 0 0 8px;
+      background: #f3f4f6;
+      border-color: #e5e7eb;
+      color: #6b7280;
+    }
+    .badge-pill {
+      border-radius: 999px;
+      background: #f3f4ff;
+      color: #4b5563;
+      padding: 4px 10px;
+      font-size: 11px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+      display: inline-block;
+    }
+    .btn-primary {
+      background: #0ea5e9;
+      border-color: #0ea5e9;
+      border-radius: 8px;
+      font-weight: 600;
+      padding: 10px 18px;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background: #0284c7;
+      border-color: #0284c7;
+    }
+    .btn-outline {
+      background: #fff;
+      border-radius: 8px;
+      border: 1px dashed #cbd5e1;
+      color: #6b7280;
+    }
+    .btn-outline:hover {
+      background: #f9fafb;
+    }
+    @media (max-width: 767px) {
+      .page-wrap { padding: 20px 12px 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero-bar">
+    <div class="hero-inner">
+      <div>
+        <h1 class="hero-title"><i class="fa fa-building-o"></i> List Your Shop on Local Services</h1>
+        <p class="hero-subtitle">Create a rich profile with services, pricing, and hours—just like “The Glamour Studio”.</p>
+      </div>
+      <div class="hero-steps">
+        <div class="hero-step">
+          <span class="badge">1</span> Basic details
+        </div>
+        <div class="hero-step">
+          <span class="badge">2</span> Contact &amp; services
+        </div>
+        <div class="hero-step">
+          <span class="badge">3</span> Business info &amp; publish
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-wrap">
+    <div class="page-header">
+      <h2>Add Your Shop</h2>
+      <p>Provide your shop details so we can create a beautiful profile like “The Glamour Studio”.</p>
+    </div>
+
+    <form>
+      <!-- Basic shop details -->
+      <div class="card">
+        <div class="card-header">Shop Details</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-8">
+              <label class="section-label">Shop name</label>
+              <input type="text" class="form-control" name="shop_name" placeholder="e.g., The Glamour Studio" required>
+              <p class="help-text">This is how customers will see your shop on the platform.</p>
+            </div>
+            <div class="col-sm-4">
+              <label class="section-label">Category</label>
+              <select class="form-control" name="category" required>
+                <option value="">Select category</option>
+                <option>Hair &amp; Beauty Salon</option>
+                <option>Home Cleaning</option>
+                <option>Plumbing</option>
+                <option>Electrical</option>
+                <option>Pest Control</option>
+                <option>Appliance Repair</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:15px;">
+            <div class="col-sm-8">
+              <label class="section-label">Full address</label>
+              <input type="text" class="form-control" name="address" placeholder="Building, Street, Area, City" required>
+            </div>
+            <div class="col-sm-4">
+              <label class="section-label">City</label>
+              <input type="text" class="form-control" name="city" placeholder="e.g., Bengaluru" required>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:15px;">
+            <div class="col-sm-4">
+              <label class="section-label">Service radius (km)</label>
+              <input type="number" min="1" class="form-control" name="radius" placeholder="e.g., 10">
+              <p class="help-text">How far from your shop you provide services.</p>
+            </div>
+            <div class="col-sm-4">
+              <label class="section-label">Upload shop logo / cover</label>
+              <input type="file" class="form-control" name="logo">
+              <p class="help-text">Square image works best (e.g., 500x500px).</p>
+            </div>
+            <div class="col-sm-4">
+              <label class="section-label">Website / Instagram (optional)</label>
+              <input type="url" class="form-control" name="website" placeholder="https://yourbrand.in">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact details -->
+      <div class="card">
+        <div class="card-header">Contact & Communication</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <label class="section-label">Primary phone</label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                <input type="tel" class="form-control" name="phone" placeholder="+91 98765 43210" required>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label class="section-label">WhatsApp number (optional)</label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-whatsapp"></i></span>
+                <input type="tel" class="form-control" name="whatsapp" placeholder="+91 98765 43210">
+              </div>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:15px;">
+            <div class="col-sm-6">
+              <label class="section-label">Business email</label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                <input type="email" class="form-control" name="email" placeholder="hello@yourshop.com">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label class="section-label">Preferred contact methods</label>
+              <div>
+                <label class="checkbox-inline"><input type="checkbox" name="contact_method[]" value="call" checked> Calls</label>
+                <label class="checkbox-inline"><input type="checkbox" name="contact_method[]" value="whatsapp"> WhatsApp</label>
+                <label class="checkbox-inline"><input type="checkbox" name="contact_method[]" value="sms"> SMS</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div class="card">
+        <div class="card-header">Key Services (as shown on your shop page)</div>
+        <div class="card-body">
+          <p class="help-text">Add a few highlight services like “Luxury Haircut &amp; Styling”, “Bridal Makeup Package”, etc.</p>
+
+          <!-- Service 1 -->
+          <div class="row">
+            <div class="col-sm-5">
+              <label class="section-label">Service 1 - Name</label>
+              <input type="text" class="form-control" name="service1_name" placeholder="e.g., Luxury Haircut &amp; Styling">
+            </div>
+            <div class="col-sm-3">
+              <label class="section-label">Short description</label>
+              <input type="text" class="form-control" name="service1_desc" placeholder="e.g., Wash, cut &amp; blow-dry">
+            </div>
+            <div class="col-sm-2">
+              <label class="section-label">Starting price (₹)</label>
+              <input type="number" class="form-control" name="service1_price" min="0" placeholder="1200">
+            </div>
+            <div class="col-sm-2">
+              <label class="section-label">Duration</label>
+              <input type="text" class="form-control" name="service1_duration" placeholder="e.g., 1 hr">
+            </div>
+          </div>
+          <div class="row" style="margin-top:8px;">
+            <div class="col-sm-6">
+              <label class="section-label">Service 1 image</label>
+              <input type="file" class="form-control" name="service1_image" accept="image/*">
+              <p class="help-text">Upload a clear photo representing this service. Shown in your shop page cards.</p>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="row" style="margin-top:12px;">
+            <div class="col-sm-5">
+              <label class="section-label">Service 2 - Name</label>
+              <input type="text" class="form-control" name="service2_name" placeholder="e.g., Bridal Makeup Package">
+            </div>
+            <div class="col-sm-3">
+              <label class="section-label">Short description</label>
+              <input type="text" class="form-control" name="service2_desc" placeholder="e.g., Full day premium package">
+            </div>
+            <div class="col-sm-2">
+              <label class="section-label">Starting price (₹)</label>
+              <input type="number" class="form-control" name="service2_price" min="0" placeholder="15000">
+            </div>
+            <div class="col-sm-2">
+              <label class="section-label">Duration</label>
+              <input type="text" class="form-control" name="service2_duration" placeholder="e.g., 3–4 hrs">
+            </div>
+          </div>
+          <div class="row" style="margin-top:8px;">
+            <div class="col-sm-6">
+              <label class="section-label">Service 2 image</label>
+              <input type="file" class="form-control" name="service2_image" accept="image/*">
+              <p class="help-text">This image can appear next to your second key service.</p>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="row" style="margin-top:12px;">
+            <div class="col-sm-5">
+              <label class="section-label">Service 3 - Name</label>
+              <input type="text" class="form-control" name="service3_name" placeholder="e.g., Luxury Manicure &amp; Pedicure">
+            </div>
+            <div class="col-sm-3">
+              <label class="section-label">Short description</label>
+              <input type="text" class="form-control" name="service3_desc" placeholder="e.g., Complete hand &amp; foot ritual">
+            </div>
+            <div class="col-sm-2">
+              <label class="section-label">Starting price (₹)</label>
+              <input type="number" class="form-control" name="service3_price" min="0" placeholder="1800">
+            </div>
+            <div class="col-sm-2">
+              <label class="section-label">Duration</label>
+              <input type="text" class="form-control" name="service3_duration" placeholder="e.g., 90 mins">
+            </div>
+          </div>
+          <div class="row" style="margin-top:8px;">
+            <div class="col-sm-6">
+              <label class="section-label">Service 3 image</label>
+              <input type="file" class="form-control" name="service3_image" accept="image/*">
+              <p class="help-text">Optional image for your third highlighted service.</p>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-outline" style="margin-top:15px;">
+            <i class="fa fa-plus"></i> Add another service (optional)
+          </button>
+        </div>
+      </div>
+
+      <!-- Business info & hours -->
+      <div class="card">
+        <div class="card-header">Business Info & Hours</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <label class="section-label">Years of experience</label>
+              <input type="number" class="form-control" name="years_experience" min="0" placeholder="e.g., 12">
+            </div>
+            <div class="col-sm-4">
+              <label class="section-label">Licensed &amp; insured?</label>
+              <select class="form-control" name="licensed">
+                <option value="">Select</option>
+                <option value="yes">Yes, fully licensed &amp; insured</option>
+                <option value="no">Not yet</option>
+              </select>
+            </div>
+            <div class="col-sm-4">
+              <label class="section-label">Use organic / safe products?</label>
+              <select class="form-control" name="organic">
+                <option value="">Select</option>
+                <option value="yes">Yes, mostly organic/safe</option>
+                <option value="no">Standard products</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:15px;">
+            <div class="col-sm-6">
+              <label class="section-label">Working days</label>
+              <input type="text" class="form-control" name="working_days" placeholder="e.g., Mon - Sat">
+            </div>
+            <div class="col-sm-3">
+              <label class="section-label">Open time</label>
+              <input type="time" class="form-control" name="open_time">
+            </div>
+            <div class="col-sm-3">
+              <label class="section-label">Close time</label>
+              <input type="time" class="form-control" name="close_time">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="text-right">
+        <button type="submit" class="btn btn-primary" onclick="window.location.href='./shop_owner_dashboard.html'">Save</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

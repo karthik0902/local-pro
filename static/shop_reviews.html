@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./footer.css">
+
+<title>Shop Owner Dashboard</title>
+
+<style>
+    /* ---------------------------------------------------- */
+    /* 1. Global & Variables */
+    /* ---------------------------------------------------- */
+    :root {
+        --color-primary: #1890FF; /* Deep Blue */
+        --color-accent: #00BF63;  /* Bright Green */
+        --color-danger: #FA5252;  /* Red for critical metrics */
+        --color-warning: #FFC107; /* Yellow for pending */
+        --color-bg: #F5F7FB;      /* Soft page background */
+        --color-text-dark: #333;
+        --color-muted: #6c757d;
+        --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+        --radius-default: 8px;
+    }
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        margin: 0;
+        /* Padding for two fixed navbars (approx 50px + 55px = 105px) */
+        padding-top: 105px; 
+        background-color: var(--color-bg);
+        color: var(--color-text-dark);
+    }
+    a {
+        text-decoration: none !important;
+    }
+    
+    /* ---------------------------------------------------- */
+    /* 2. Primary Global Navbar */
+    /* ---------------------------------------------------- */
+    .navbar {
+        background-color: white;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1001; 
+        border: none; /* Override Bootstrap default border */
+        border-radius: 0;
+        min-height: 50px;
+    }
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--color-primary);
+        line-height: 50px; /* Center with min-height */
+        padding: 0;
+    }
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+    }
+    .nav-links li a {
+        color: var(--color-muted);
+        padding: 15px 10px;
+        display: block;
+        transition: color 0.3s;
+    }
+    .nav-links li a:hover {
+        color: var(--color-primary);
+        background: transparent;
+    }
+    /* Hide default Bootstrap Nav toggles/collapse functionality for custom menu */
+    .navbar-collapse.collapse.in, .navbar-toggle { display: none !important; }
+
+    /* ---------------------------------------------------- */
+    /* 3. Secondary Dashboard Navbar (CONTEXTUAL MENU) */
+    /* ---------------------------------------------------- */
+    .dashboard-nav {
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        position: fixed;
+        top: 50px; /* Positioned right below the primary navbar */
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        min-height: 55px;
+        border-bottom: 2px solid #eee;
+        padding: 0 15px;
+    }
+    .dashboard-card {
+            background: #fff;
+            border-radius: var(--radius-default);
+            box-shadow: var(--shadow-soft);
+            border: 1px solid #e8e8e8;
+            margin-bottom: 25px;
+        }
+
+    .dashboard-nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        /* Enable Horizontal Scrolling on small screens */
+        overflow-x: auto; 
+        white-space: nowrap; 
+        -webkit-overflow-scrolling: touch; 
+        scrollbar-width: none; /* Firefox */
+    }
+    /* Hide scrollbar for Chrome/Safari */
+    .dashboard-nav-container::-webkit-scrollbar {
+        display: none; 
+    }
+
+    .dashboard-nav-container a {
+        color: var(--color-text-dark);
+        font-weight: 600;
+        padding: 17px 20px;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.2s;
+        border-bottom: 3px solid transparent;
+        flex-shrink: 0; /* Prevents links from squishing */
+    }
+
+    .dashboard-nav-container a i {
+        margin-right: 8px;
+        font-size: 1.1em;
+    }
+
+    .dashboard-nav-container a:hover,
+    .dashboard-nav-container a.active {
+        color: var(--color-primary);
+        border-bottom: 3px solid var(--color-primary);
+        background-color: #f7f9fc;
+    }
+    
+    .dashboard-header {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: var(--color-text-dark);
+        padding: 17px 25px 17px 0;
+        flex-shrink: 0;
+        margin-right: 20px;
+        border-right: 1px solid #eee;
+    }
+    .dashboard-header span {
+        color: var(--color-accent);
+        font-weight: 700;
+    }
+
+
+    /* ---------------------------------------------------- */
+    /* 4. Main Content Area & Cards */
+    /* ---------------------------------------------------- */
+    main {
+        padding: 30px 15px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+   .address-col {
+        max-width: 220px;
+        font-size: 0.9em;
+        line-height: 1.4;
+        color: var(--color-muted);
+    }
+    .address-col i {
+        color: var(--color-primary);
+        margin-right: 5px;
+    }
+    
+    /* Status Dropdown Styling */
+    .status-select {
+        font-weight: 600;
+        border-radius: 4px;
+        height: 30px;
+        padding: 2px 8px;
+    }
+    .status-select.pending { color: #856404; background-color: #fff3cd; border-color: #ffeeba; }
+    .status-select.confirmed { color: #004085; background-color: #cce5ff; border-color: #b8daff; }
+
+
+    .navbar, .dashboard-nav {
+            background-color: white; position: fixed;
+            left: 0; width: 100%; z-index: 1001; border: none;
+        }
+        .navbar { top: 0; height: 50px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+        .dashboard-nav { top: 50px; height: 55px; border-bottom: 2px solid #eee; z-index: 1000; }
+        
+        .nav-container, .dashboard-nav-container {
+            max-width: 1200px; margin: 0 auto; padding: 0 15px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .dashboard-nav-container { overflow-x: auto; white-space: nowrap; justify-content: flex-start; }
+        .dashboard-nav-container a {
+            color: var(--color-text-dark); font-weight: 600; padding: 17px 20px;
+            display: inline-flex; border-bottom: 3px solid transparent; text-decoration: none;
+        }
+        .dashboard-nav-container a.active { color: var(--color-primary); border-bottom-color: var(--color-primary); }
+
+        /* --- Metric Cards --- */
+        .dashboard-card {
+            background: #fff; border-radius: var(--radius-default);
+            box-shadow: var(--shadow-soft); border: 1px solid #e8e8e8; margin-bottom: 25px;
+            padding: 20px;
+        }
+        .metric-value { font-size: 28px; font-weight: 800; color: var(--color-primary); margin-bottom: 5px; }
+        .star-rating { color: #FFC107; }
+
+        /* --- Review Items --- */
+        .review-item { padding: 25px 0; border-bottom: 1px solid #f0f0f0; }
+        .review-item:last-child { border-bottom: none; }
+        
+        .cust-avatar {
+            width: 45px; height: 45px; border-radius: 50%; background: #eef2f7;
+            color: var(--color-primary); display: flex; align-items: center; 
+            justify-content: center; font-weight: bold; margin-right: 15px;
+        }
+        .verified-badge { font-size: 11px; background: #e6f7ff; color: var(--color-primary); padding: 2px 8px; border-radius: 10px; }
+        .service-tag { display: inline-block; background: #f5f5f5; padding: 3px 10px; border-radius: 4px; font-size: 12px; margin: 8px 0; }
+        
+        .owner-reply {
+            margin-top: 15px; padding: 15px; background: #f9f9f9;
+            border-left: 4px solid #dcdcdc; border-radius: 4px;
+        }
+        .reply-box { margin-top: 15px; display: none; }
+
+        @media (max-width: 767px) {
+            body { padding-top: 110px; }
+            .metric-card { margin-bottom: 15px; }
+        }
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">Local Services</a>
+
+        <ul class="nav-links">
+         
+            <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<nav class="dashboard-nav">
+    <div class="dashboard-nav-container">
+        
+        <div class="dashboard-header hidden-xs">
+            Welcome, Shop Owner! <span>(Online)</span>
+        </div>
+
+        <a href="./shop_owner_dashboard.html"><i class="fa fa-dashboard"></i> Overview</a>
+        <a href="./shop_bookings.html" ><i class="fa fa-calendar-check-o"></i> Bookings</a>
+        <a href="./Services_Pricing.html"><i class="fa fa-wrench"></i> Services & Pricing</a>
+        <a href="./shop_reviews.html" class="active"><i class="fa fa-users"></i> Reviews</a>
+        <a href="./shop_settings.html"><i class="fa fa-cog"></i> Settings</a>
+        <a href="./shop_member.html"><i class="fa fa-user-circle-o"></i> Profile</a>
+
+    </div>
+</nav>
+<main class="container">
+    <div class="page-header" style="border:none; margin: 10px 0 20px;">
+        <h3 style="font-weight:700; color:var(--color-primary);">Customer Feedback</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 col-xs-6">
+            <div class="dashboard-card text-center">
+                <div class="metric-value">4.8 <i class="fa fa-star star-rating"></i></div>
+                <small class="text-muted">Avg Rating</small>
+            </div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+            <div class="dashboard-card text-center">
+                <div class="metric-value">124</div>
+                <small class="text-muted">Total Reviews</small>
+            </div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+            <div class="dashboard-card text-center">
+                <div class="metric-value" style="color:var(--color-accent)">92%</div>
+                <small class="text-muted">Satisfaction</small>
+            </div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+            <div class="dashboard-card text-center">
+                <div class="metric-value" style="color:var(--color-warning)">85%</div>
+                <small class="text-muted">Response Rate</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-card" style="padding: 10px 25px;">
+        <div class="review-item">
+            <div class="row">
+                <div class="col-md-9 col-sm-8">
+                    <div style="display:flex; align-items:center;">
+                        <div class="cust-avatar">RS</div>
+                        <div>
+                            <strong>Rohan Sharma</strong> <span class="verified-badge"><i class="fa fa-check-circle"></i> Verified</span>
+                            <div class="star-rating">
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-tag">Booked: <strong>Deep AC Jet Cleaning</strong></div>
+                    <p>The technician was very professional and punctual. My AC is cooling like new. Definitely recommended!</p>
+                </div>
+                <div class="col-md-3 col-sm-4 text-right">
+                    <small class="text-muted">Yesterday</small>
+                </div>
+            </div>
+            <div class="owner-reply">
+                <small><strong>Your Response:</strong></small>
+                <p style="margin:5px 0 0;">Thank you, Rohan! We're glad you liked our service. Looking forward to serving you again.</p>
+            </div>
+        </div>
+
+        <div class="review-item">
+            <div class="row">
+                <div class="col-md-9 col-sm-8">
+                    <div style="display:flex; align-items:center;">
+                        <div class="cust-avatar" style="background:#ffdada; color:var(--color-danger)">MK</div>
+                        <div>
+                            <strong>Meera Kapoor</strong>
+                            <div class="star-rating">
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-tag">Booked: <strong>Leaky Faucet Repair</strong></div>
+                    <p>Technician arrived 40 minutes late. The work was done well, but the delay was frustrating.</p>
+                </div>
+                <div class="col-md-3 col-sm-4 text-right">
+                    <small class="text-muted">3 days ago</small>
+                    <div style="margin-top:10px;">
+                        <button class="btn btn-sm btn-default" onclick="$(this).closest('.review-item').find('.reply-box').slideToggle();">
+                            <i class="fa fa-reply"></i> Reply
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="reply-box">
+                <textarea class="form-control" rows="2" placeholder="Write your response..."></textarea>
+                <button class="btn btn-sm btn-primary" style="margin-top:8px;">Send Response</button>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <div class="footer-container">
+        <div>
+            <h3>About</h3>
+            <p>Professional local services platform providing quality solutions.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div>
+            <h3>Support</h3>
+            <a href="#">Help Center</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 MyWebsite. All rights reserved.
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<title>Shop Owner Dashboard</title>
+<link rel="stylesheet" href="./footer.css">
+
+<style>
+    /* ---------------------------------------------------- */
+    /* 1. Global & Variables */
+    /* ---------------------------------------------------- */
+    :root {
+        --color-primary: #1890FF; /* Deep Blue */
+        --color-accent: #00BF63;  /* Bright Green */
+        --color-danger: #FA5252;  /* Red for critical metrics */
+        --color-warning: #FFC107; /* Yellow for pending */
+        --color-bg: #F5F7FB;      /* Soft page background */
+        --color-text-dark: #333;
+        --color-muted: #6c757d;
+        --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+        --radius-default: 8px;
+    }
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        margin: 0;
+        /* Padding for two fixed navbars (approx 50px + 55px = 105px) */
+        padding-top: 105px; 
+        background-color: var(--color-bg);
+        color: var(--color-text-dark);
+    }
+    a {
+        text-decoration: none !important;
+    }
+    
+    /* ---------------------------------------------------- */
+    /* 2. Primary Global Navbar */
+    /* ---------------------------------------------------- */
+    .navbar {
+        background-color: white;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1001; 
+        border: none; /* Override Bootstrap default border */
+        border-radius: 0;
+        min-height: 50px;
+    }
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--color-primary);
+        line-height: 50px; /* Center with min-height */
+        padding: 0;
+    }
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+    }
+    .nav-links li a {
+        color: var(--color-muted);
+        padding: 15px 10px;
+        display: block;
+        transition: color 0.3s;
+    }
+    .nav-links li a:hover {
+        color: var(--color-primary);
+        background: transparent;
+    }
+    /* Hide default Bootstrap Nav toggles/collapse functionality for custom menu */
+    .navbar-collapse.collapse.in, .navbar-toggle { display: none !important; }
+
+    /* ---------------------------------------------------- */
+    /* 3. Secondary Dashboard Navbar (CONTEXTUAL MENU) */
+    /* ---------------------------------------------------- */
+    .dashboard-nav {
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        position: fixed;
+        top: 50px; /* Positioned right below the primary navbar */
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        min-height: 55px;
+        border-bottom: 2px solid #eee;
+        padding: 0 15px;
+    }
+
+    .dashboard-nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        /* Enable Horizontal Scrolling on small screens */
+        overflow-x: auto; 
+        white-space: nowrap; 
+        -webkit-overflow-scrolling: touch; 
+        scrollbar-width: none; /* Firefox */
+    }
+    /* Hide scrollbar for Chrome/Safari */
+    .dashboard-nav-container::-webkit-scrollbar {
+        display: none; 
+    }
+
+    .dashboard-nav-container a {
+        color: var(--color-text-dark);
+        font-weight: 600;
+        padding: 17px 20px;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.2s;
+        border-bottom: 3px solid transparent;
+        flex-shrink: 0; /* Prevents links from squishing */
+    }
+
+    .dashboard-nav-container a i {
+        margin-right: 8px;
+        font-size: 1.1em;
+    }
+
+    .dashboard-nav-container a:hover,
+    .dashboard-nav-container a.active {
+        color: var(--color-primary);
+        border-bottom: 3px solid var(--color-primary);
+        background-color: #f7f9fc;
+    }
+    
+    .dashboard-header {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: var(--color-text-dark);
+        padding: 17px 25px 17px 0;
+        flex-shrink: 0;
+        margin-right: 20px;
+        border-right: 1px solid #eee;
+    }
+    .dashboard-header span {
+        color: var(--color-accent);
+        font-weight: 700;
+    }
+
+
+    /* ---------------------------------------------------- */
+    /* 4. Main Content Area & Cards */
+    /* ---------------------------------------------------- */
+    main {
+        padding: 30px 15px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .service-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 6px;
+        object-fit: cover;
+        border: 1px solid #ddd;
+    }
+    
+    /* Centering Pagination */
+    .pagination-container {
+        text-align: center;
+        margin-top: 20px;
+        border-top: 1px solid #eee;
+        padding-top: 10px;
+    }
+    
+    .pagination > .active > a {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+    }
+
+    .service-meta-text {
+        font-size: 0.85em;
+        color: var(--color-muted);
+        display: block;
+    }
+
+    .dashboard-card {
+        background: #fff;
+        border-radius: var(--radius-default);
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: var(--shadow-soft);
+        text-align: center;
+        transition: transform 0.2s;
+        border: 1px solid #e8e8e8;
+    }
+    .dashboard-card h4 {
+        margin-top: 0;
+        color: var(--color-muted);
+        font-weight: 600;
+        font-size: 1.1em;
+    }
+    
+    /* Table Specific Styling */
+    .table-responsive {
+        border: none; /* Remove default Bootstrap responsive table border */
+    }
+    .table > tbody > tr > td, .table > thead > tr > th {
+        vertical-align: middle;
+        font-size: 1.1em;
+    }
+    .table thead th {
+        font-weight: 700;
+        color: var(--color-muted);
+        border-bottom-width: 2px;
+    }
+    .table .label {
+        font-size: 90%;
+        padding: 0.5em 0.8em;
+    }
+    .service-management-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .service-management-header h3 {
+        margin: 0;
+        font-weight: 700;
+        color: var(--color-primary);
+    }
+    .service-price-col {
+        font-weight: 700;
+        color: var(--color-primary);
+    }
+    .service-name-col {
+        font-weight: 600;
+        color: var(--color-text-dark);
+    }
+    .btn-action-group .btn {
+        margin: 2px;
+        border-radius: 4px;
+        padding: 5px 8px; /* Slightly larger hit area for mobile */
+    }
+    .btn-edit { background-color: var(--color-primary); color: white; border-color: var(--color-primary); }
+    .btn-toggle-on { background-color: var(--color-accent); color: white; border-color: var(--color-accent); }
+    .btn-toggle-off { background-color: var(--color-warning); color: #333; border-color: var(--color-warning); }
+    .btn-delete { background-color: var(--color-danger); color: white; border-color: var(--color-danger); }
+    .label-success { background-color: var(--color-accent); }
+    .label-warning { background-color: var(--color-warning); }
+    
+    /* --- FILTER BAR STYLES (CORRECTION) --- */
+    .filter-bar-wrapper {
+        background: #fff;
+        padding: 15px;
+        border-radius: var(--radius-default);
+        box-shadow: var(--shadow-soft);
+        margin-bottom: 25px;
+    }
+    .filter-bar-wrapper .input-group-addon {
+        background: #f0f0f5;
+    }
+    .filter-bar-wrapper .form-control {
+        /* Aligning the input to the group */
+        border-radius: 0 var(--radius-default) var(--radius-default) 0;
+    }
+
+    /* ---------------------------------------------------- */
+    /* 5. Footer Styling (CORRECTION) */
+    /* ---------------------------------------------------- */
+
+
+    /* ---------------------------------------------------- */
+    /* 6. Mobile Responsiveness */
+    /* ---------------------------------------------------- */
+    @media (max-width: 767px) {
+        body {
+            padding-top: 100px; /* Reduced for mobile */
+        }
+        
+        /* Navbars - Ensure scrollability */
+        .dashboard-nav-container {
+            justify-content: initial; 
+            padding-right: 15px; 
+        }
+        
+        /* Header stacking */
+        .service-management-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        /* Full width search bar on mobile */
+        .filter-bar-wrapper .input-group {
+            width: 100%;
+        }
+
+        /* Action Buttons: Use smaller buttons and smaller font size in table on mobile */
+        .table > tbody > tr > td {
+            font-size: 0.9em;
+        }
+        .btn-action-group .btn {
+            padding: 4px 6px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">Local Services</a>
+
+        <ul class="nav-links list-unstyled">
+            <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<nav class="dashboard-nav">
+    <div class="dashboard-nav-container">
+        
+        <div class="dashboard-header hidden-xs">
+            Welcome, Shop Owner! <span>(Online)</span>
+        </div>
+
+        <a href="./shop_owner_dashboard.html"><i class="fa fa-dashboard"></i> Overview</a>
+        <a href="./shop_bookings.html"><i class="fa fa-calendar-check-o"></i> Bookings</a>
+        <a href="./Services_Pricing.html" class="active"><i class="fa fa-wrench"></i> Services & Pricing</a>
+        <a href="./shop_reviews.html"><i class="fa fa-users"></i> Reviews</a>
+        <a href="./shop_reviews.html"><i class="fa fa-cog"></i> Settings</a>
+        <a href="./shop_member.html"><i class="fa fa-user-circle-o"></i> Profile</a>
+
+    </div>
+</nav>
+
+
+<main>
+    <div class="container-fluid">
+    <div class="dashboard-card" style="padding: 15px;">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Service Details</th>
+                        <th>Category</th>
+                        <th>Base Price</th>
+                        <th>Status</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="https://images.pexels.com/photos/7347538/pexels-photo-7347538.jpeg" class="service-img" alt="AC"></td>
+                        <td>
+                            <span class="service-name-col">Deep AC Jet Cleaning</span>
+                            <span class="service-meta-text">Duration: 90 mins</span>
+                        </td>
+                        <td>HVAC</td>
+                        <td class="service-price-col">₹1,499</td>
+                        <td><span class="label label-success">Active</span></td>
+                        <td class="text-center btn-action-group">
+                            <button class="btn btn-xs btn-edit" data-toggle="modal" data-target="#editServiceModal" data-service-id="901" data-service-name="Deep AC Jet Cleaning"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-xs btn-toggle-on"><i class="fa fa-toggle-on"></i></button>
+                            <button class="btn btn-xs btn-delete" data-toggle="modal" data-target="#deleteConfirmationModal" data-service-id="901"><i class="fa fa-trash-o"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://images.pexels.com/photos/18274115/pexels-photo-18274115.jpeg" class="service-img" alt="Plumbing"></td>
+                        <td>
+                            <span class="service-name-col">Leaky Faucet Repair</span>
+                            <span class="service-meta-text">Duration: 45 mins</span>
+                        </td>
+                        <td>Plumbing</td>
+                        <td class="service-price-col">₹499</td>
+                        <td><span class="label label-warning">Paused</span></td>
+                        <td class="text-center btn-action-group">
+                            <button class="btn btn-xs btn-edit" data-toggle="modal" data-target="#editServiceModal" data-service-id="902"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-xs btn-toggle-off"><i class="fa fa-toggle-off"></i></button>
+                            <button class="btn btn-xs btn-delete" data-toggle="modal" data-target="#deleteConfirmationModal" data-service-id="902"><i class="fa fa-trash-o"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://images.pexels.com/photos/4239130/pexels-photo-4239130.jpeg" class="service-img" alt="Cleaning"></td>
+                        <td>
+                            <span class="service-name-col">Full Home Deep Cleaning</span>
+                            <span class="service-meta-text">Duration: 6 hours</span>
+                        </td>
+                        <td>Cleaning</td>
+                        <td class="service-price-col">₹4,999</td>
+                        <td><span class="label label-success">Active</span></td>
+                        <td class="text-center btn-action-group">
+                            <button class="btn btn-xs btn-edit" data-toggle="modal" data-target="#editServiceModal" data-service-id="903"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-xs btn-toggle-on"><i class="fa fa-toggle-on"></i></button>
+                            <button class="btn btn-xs btn-delete" data-toggle="modal" data-target="#deleteConfirmationModal" data-service-id="903"><i class="fa fa-trash-o"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://images.pexels.com/photos/27928762/pexels-photo-27928762.jpeg" class="service-img" alt="Electrical"></td>
+                        <td>
+                            <span class="service-name-col">Switchboard Repair</span>
+                            <span class="service-meta-text">Duration: 30 mins</span>
+                        </td>
+                        <td>Electrical</td>
+                        <td class="service-price-col">₹299</td>
+                        <td><span class="label label-success">Active</span></td>
+                        <td class="text-center btn-action-group">
+                            <button class="btn btn-xs btn-edit" data-toggle="modal" data-target="#editServiceModal" data-service-id="904"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-xs btn-toggle-on"><i class="fa fa-toggle-on"></i></button>
+                            <button class="btn btn-xs btn-delete" data-toggle="modal" data-target="#deleteConfirmationModal" data-service-id="904"><i class="fa fa-trash-o"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://images.pexels.com/photos/4916299/pexels-photo-4916299.jpeg" class="service-img" alt="Appliances"></td>
+                        <td>
+                            <span class="service-name-col">Kitchen Chimney Service</span>
+                            <span class="service-meta-text">Duration: 120 mins</span>
+                        </td>
+                        <td>Appliances</td>
+                        <td class="service-price-col">₹899</td>
+                        <td><span class="label label-warning">Paused</span></td>
+                        <td class="text-center btn-action-group">
+                            <button class="btn btn-xs btn-edit" data-toggle="modal" data-target="#editServiceModal" data-service-id="905"><i class="fa fa-pencil"></i></button>
+                            <button class="btn btn-xs btn-toggle-off"><i class="fa fa-toggle-off"></i></button>
+                            <button class="btn btn-xs btn-delete" data-toggle="modal" data-target="#deleteConfirmationModal" data-service-id="905"><i class="fa fa-trash-o"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+   
+    </div>
+         <div class="pagination-container">
+            <p class="text-muted">Showing 1 to 5 of 24 services</p>
+            <ul class="pagination">
+                <li><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+            </ul>
+        </div>
+</div>
+</main>
+
+
+<div class="modal fade" id="editServiceModal" tabindex="-1" role="dialog" aria-labelledby="editServiceLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="editServiceLabel"><i class="fa fa-pencil"></i> Edit Service: <span id="modalServiceName"></span></h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="hidden" id="modalServiceId" name="service_id">
+          
+          <div class="form-group">
+            <label for="serviceNameInput">Service Name</label>
+            <input type="text" class="form-control" id="serviceNameInput" placeholder="e.g., Deep AC Cleaning">
+          </div>
+          
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="servicePriceInput">Base Price (₹)</label>
+                <input type="number" class="form-control" id="servicePriceInput" placeholder="e.g., 1499">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="serviceDurationInput">Duration (Mins)</label>
+                <input type="number" class="form-control" id="serviceDurationInput" placeholder="e.g., 90">
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="serviceCategorySelect">Category</label>
+            <select class="form-control" id="serviceCategorySelect">
+              <option>HVAC</option>
+              <option>Plumbing</option>
+              <option>Electrical</option>
+              <option>Cleaning</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="serviceDescriptionArea">Description</label>
+            <textarea class="form-control" id="serviceDescriptionArea" rows="3" placeholder="Detailed service description for customers..."></textarea>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"><i class="fa fa-save"></i> Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: var(--color-danger);">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="deleteConfirmationLabel"><i class="fa fa-trash-o"></i> Confirm Deletion</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete the service: <strong><span id="deleteServiceName"></span></strong>?</p>
+        <p class="text-danger"><small>This action cannot be undone.</small></p>
+        <input type="hidden" id="deleteServiceId">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete Permanently</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    // ------------------------------------------------------------------
+    // JAVASCRIPT TO POPULATE MODAL FIELDS BEFORE THEY OPEN
+    // ------------------------------------------------------------------
+
+    // Logic for EDIT Modal
+    $('#editServiceModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); 
+        var serviceId = button.data('service-id');
+        var serviceName = button.data('service-name');
+        
+        var modal = $(this);
+        modal.find('#modalServiceId').val(serviceId);
+        modal.find('#modalServiceName').text(serviceName);
+        
+        // Mock data loading (Replace with real AJAX fetch using serviceId)
+        if (serviceId === 901) {
+            modal.find('#serviceNameInput').val("Deep AC Jet Cleaning");
+            modal.find('#servicePriceInput').val("1499");
+            modal.find('#serviceDurationInput').val("90");
+            modal.find('#serviceCategorySelect').val("HVAC");
+            modal.find('#serviceDescriptionArea').val("Comprehensive deep cleaning of indoor and outdoor AC units using a high-pressure jet pump.");
+        } else if (serviceId === 902) {
+            modal.find('#serviceNameInput').val("Leaky Faucet Repair");
+            modal.find('#servicePriceInput').val("499");
+            modal.find('#serviceDurationInput').val("45");
+            modal.find('#serviceCategorySelect').val("Plumbing");
+            modal.find('#serviceDescriptionArea').val("Repair or replacement of standard kitchen or bathroom faucet washer/gasket.");
+        }
+    });
+
+    // Logic for DELETE Modal
+    $('#deleteConfirmationModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); 
+        var serviceId = button.data('service-id');
+        var serviceName = button.data('service-name');
+        
+        var modal = $(this);
+        modal.find('#deleteServiceId').val(serviceId);
+        modal.find('#deleteServiceName').text(serviceName);
+    });
+});
+</script>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div>
+            <h3>About</h3>
+            <p>Professional local services platform providing quality solutions.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div>
+            <h3>Support</h3>
+            <a href="#">Help Center</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 MyWebsite. All rights reserved.
+    </div>
+</footer>
+
+</body>
+</html>

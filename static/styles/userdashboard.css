@@ -1,0 +1,77 @@
+
+
+/* SECTION */
+.shops-section {
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* CARD */
+.shop-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.shop-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+.shop-img {
+  height: 180px;
+  overflow: hidden;
+}
+
+.shop-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.shop-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.shop-content h4 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.shop-content p {
+  color: #6c757d;
+  margin-bottom: 6px;
+}
+
+.shop-content i {
+  color: #0d6efd;
+}
+
+/* RATING */
+.rating {
+  color: #f4b400;
+  margin-bottom: 12px;
+}
+
+.rating span {
+  color: #555;
+  font-size: 13px;
+}
+
+/* BUTTON */
+.shop-content .btn {
+  border-radius: 20px;
+  font-weight: 600;
+}
